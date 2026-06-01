@@ -1,0 +1,29 @@
+{
+  "Introduction": {
+    "description": "Introduced self, company and purpose"
+  },
+
+  "Client Profile": {
+    "description": "Collect customer information, portfolio, investment amount, horizon"
+  },
+
+  "Awareness": {
+    "description": "Explain NIFTY, ETF, Hedging, Downside Protection"
+  },
+
+  "Plan Discussion": {
+    "description": "Discuss Relax, Basic, Marathon, Power Booster, Finrakshak"
+  },
+
+  "Cost": {
+    "description": "Discuss fees, advisory cost, brokerage, tax"
+  },
+
+  "Advisory Services": {
+    "description": "Research support, API integration, broker network"
+  },
+
+  "Closing": {
+    "description": "Next steps, KYC, app download"
+  }
+}

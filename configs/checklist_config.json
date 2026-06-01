@@ -1,0 +1,49 @@
+{
+  "Introduction": {
+    "introduced_self": "Introduce yourself to the client",
+    "introduced_company": "Introduce Finideas",
+    "stated_purpose": "Explain why you are calling"
+  },
+  "Client Profile": {
+    "client_experience": "Ask about client experience in stock market/trading",
+    "awareness": "Ask whether client attended webinar or watched product videos",
+    "existing_portfolio": "Ask about existing portfolio",
+    "preferred_plan": "Ask preferred plan",
+    "investment_amount": "Ask funds willing to invest",
+    "swp_requirement": "Ask whether client needs SWP",
+    "investment_horizon": "Ask investment horizon",
+    "debt_preference": "Ask preferred debt instrument"
+  },
+  "Awareness": {
+    "nifty": "Explain NIFTY",
+    "nifty_etf": "Explain NIFTY ETF",
+    "debt": "Explain debt instruments",
+    "downside_protection": "Explain downside protection",
+    "hedging": "Explain hedging",
+    "futures": "Explain futures",
+    "risk_reward": "Explain risk reward"
+  },
+  "Plan Discussion": {
+    "purpose": "Ask investment purpose",
+    "expected_returns": "Ask expected returns",
+    "risk_willingness": "Ask willingness to take risk",
+    "plan_suitability": "Explain suitable plan"
+  },
+  "Cost": {
+    "annual_cost": "Explain annual cost",
+    "advisory_cost": "Explain advisory cost",
+    "brokerage_cost": "Explain brokerage cost",
+    "tax_implication": "Explain tax implication"
+  },
+  "Advisory Services": {
+    "research_support": "Explain research support",
+    "api_integration": "Explain API integration",
+    "broker_network": "Explain broker network"
+  },
+  "Closing": {
+    "next_steps": "Ask about next steps",
+    "kyc": "Ask about KYC",
+    "app_download": "Ask about app download",
+    "webinar": "Ask about webinar if needed"
+  }
+}
