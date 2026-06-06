@@ -1,0 +1,3371 @@
+======================================================================
+EXAMPLE #1
+Speaker: advisor
+Transcript: Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Introduction",
+    "confidence": 0.95,
+    "stage_scores": {
+      "Introduction": 0.95,
+      "Client Profile": 0.02,
+      "Awareness": 0.01,
+      "Plan Discussion": 0.01,
+      "Cost": 0.0,
+      "Advisory Services": 0.0,
+      "Closing": 0.01
+    },
+    "reason": "The caller is introducing himself and his company",
+    "evidence": [
+      "Good afternoon, this is Mahesh calling from Fin Ideas"
+    ],
+    "previous_stage": null,
+    "stage_changed": false,
+    "from_stage": null,
+    "to_stage": null,
+    "jump_type": "none",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 0
+  },
+  "active_stage": "Introduction",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Introduction",
+    "updated_status": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas"
+      ]
+    },
+    "covered_items": [
+      "introduced_self",
+      "introduced_company"
+    ],
+    "missing_items": [
+      "stated_purpose",
+      "sebi_disclosure",
+      "no_return_promise"
+    ],
+    "next_best_question": "Can you please tell me the purpose of your call today?",
+    "reason": "Introduction stage requires purpose of call to be stated",
+    "final_status": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas"
+      ],
+      "stated_purpose": [],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "completion_score": 0.4,
+    "completion_percent": 40.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas"
+      ],
+      "stated_purpose": [],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    }
+  },
+  "next_best_question": "Can you please tell me the purpose of your call today?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    }
+  ]
+}
+
+Current Stage: Introduction
+Stage Completed: False
+Next Question: Can you please tell me the purpose of your call today?
+
+
+======================================================================
+EXAMPLE #2
+Speaker: advisor
+Transcript: You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.8,
+    "stage_scores": {
+      "Introduction": 0.1,
+      "Client Profile": 0.05,
+      "Awareness": 0.8,
+      "Plan Discussion": 0.03,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.0
+    },
+    "reason": "Discussion about hedging solutions for existing portfolios indicates an explanation of financial concepts",
+    "evidence": [
+      "hedging solutions",
+      "mutual fund and equity portfolios"
+    ],
+    "previous_stage": "Introduction",
+    "stage_changed": true,
+    "from_stage": "Introduction",
+    "to_stage": "Awareness",
+    "jump_type": "forward",
+    "large_jump": true,
+    "transition_allowed": false,
+    "conversation_window_size": 1
+  },
+  "active_stage": "Introduction",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Introduction",
+    "updated_status": {
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ]
+    },
+    "covered_items": [
+      "introduced_self",
+      "introduced_company",
+      "stated_purpose"
+    ],
+    "missing_items": [
+      "sebi_disclosure",
+      "no_return_promise"
+    ],
+    "next_best_question": "Are you a SEBI registered advisor?",
+    "reason": "To confirm SEBI registration status",
+    "final_status": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "completion_score": 0.6,
+    "completion_percent": 60.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    }
+  },
+  "next_best_question": "Are you a SEBI registered advisor?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?"
+    }
+  ]
+}
+
+Current Stage: Introduction
+Stage Completed: False
+Next Question: Are you a SEBI registered advisor?
+
+
+======================================================================
+EXAMPLE #3
+Speaker: customer
+Transcript: Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Client Profile",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.05,
+      "Client Profile": 0.85,
+      "Awareness": 0.05,
+      "Plan Discussion": 0.03,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.0
+    },
+    "reason": "Customer is inquiring about the minimum investment amount",
+    "evidence": [
+      "minimum amount needed for investment"
+    ],
+    "previous_stage": "Introduction",
+    "stage_changed": true,
+    "from_stage": "Introduction",
+    "to_stage": "Client Profile",
+    "jump_type": "forward",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 2
+  },
+  "active_stage": "Client Profile",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Client Profile",
+    "updated_status": {
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ]
+    },
+    "covered_items": [
+      "webinar_awareness"
+    ],
+    "missing_items": [
+      "client_experience",
+      "existing_portfolio",
+      "preferred_plan",
+      "investment_amount",
+      "investment_type",
+      "swp_requirement",
+      "investment_horizon",
+      "debt_preference",
+      "existing_broker"
+    ],
+    "next_best_question": "What is the minimum amount you are looking to invest?",
+    "reason": "To capture the investment amount",
+    "final_status": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "completion_score": 0.1,
+    "completion_percent": 10.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    }
+  },
+  "next_best_question": "What is the minimum amount you are looking to invest?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?"
+    },
+    {
+      "speaker": "customer",
+      "stage": "Client Profile",
+      "text": "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment."
+    }
+  ]
+}
+
+Current Stage: Client Profile
+Stage Completed: False
+Next Question: What is the minimum amount you are looking to invest?
+
+
+======================================================================
+EXAMPLE #4
+Speaker: advisor
+Transcript: We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.05,
+      "Client Profile": 0.1,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.2,
+      "Cost": 0.01,
+      "Advisory Services": 0.05,
+      "Closing": 0.01
+    },
+    "reason": "Explaining financial concepts related to Nifty ETF and hedging",
+    "evidence": [
+      "Nifty ETF",
+      "Nifty futures",
+      "hedge it with December put options of the Nifty"
+    ],
+    "previous_stage": "Client Profile",
+    "stage_changed": true,
+    "from_stage": "Client Profile",
+    "to_stage": "Awareness",
+    "jump_type": "forward",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 3
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ]
+    },
+    "covered_items": [
+      "nifty_etf",
+      "hedging",
+      "futures"
+    ],
+    "missing_items": [
+      "nifty",
+      "debt",
+      "downside_protection",
+      "synthetic_futures",
+      "risk_reward",
+      "market_fluctuation",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What is your understanding of Nifty?",
+    "reason": "Nifty is a fundamental concept and understanding its basics is crucial for further discussion",
+    "final_status": {
+      "nifty": [],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.25,
+    "completion_percent": 25.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    }
+  },
+  "next_best_question": "What is your understanding of Nifty?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?"
+    },
+    {
+      "speaker": "customer",
+      "stage": "Client Profile",
+      "text": "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What is your understanding of Nifty?
+
+
+======================================================================
+EXAMPLE #5
+Speaker: advisor
+Transcript: The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.1,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.02,
+      "Cost": 0.01,
+      "Advisory Services": 0.0,
+      "Closing": 0.01
+    },
+    "reason": "Advisor is explaining the minimum investment amount for Nifty",
+    "evidence": [
+      "minimum investment",
+      "one lot of Nifty",
+      "16 lakh rupees"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 4
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "hedging",
+      "futures"
+    ],
+    "missing_items": [
+      "debt",
+      "downside_protection",
+      "synthetic_futures",
+      "risk_reward",
+      "market_fluctuation",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What is your understanding of debt instruments in the context of investment?",
+    "reason": "The transcript mentions Nifty, which is already covered in the checklist. The next best question is about debt, which is a crucial aspect of investment and is currently missing from the checklist status.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.33,
+    "completion_percent": 33.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    }
+  },
+  "next_best_question": "What is your understanding of debt instruments in the context of investment?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?"
+    },
+    {
+      "speaker": "customer",
+      "stage": "Client Profile",
+      "text": "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What is your understanding of debt instruments in the context of investment?
+
+
+======================================================================
+EXAMPLE #6
+Speaker: customer
+Transcript: Okay.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.8,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.8,
+      "Plan Discussion": 0.1,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.02
+    },
+    "reason": "The current transcript is a simple acknowledgement, and based on the recent context, the conversation is still in the awareness stage.",
+    "evidence": [
+      "We run two kinds of models.",
+      "The minimum investment is one lot of Nifty"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {},
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "hedging",
+      "futures"
+    ],
+    "missing_items": [
+      "debt",
+      "downside_protection",
+      "synthetic_futures",
+      "risk_reward",
+      "market_fluctuation",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "Can you explain what debt instruments are?",
+    "reason": "The transcript does not contain any new information related to the checklist items.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.33,
+    "completion_percent": 33.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    }
+  },
+  "next_best_question": "Can you explain what debt instruments are?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?"
+    },
+    {
+      "speaker": "customer",
+      "stage": "Client Profile",
+      "text": "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "Okay."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: Can you explain what debt instruments are?
+
+
+======================================================================
+EXAMPLE #7
+Speaker: advisor
+Transcript: Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.05,
+      "Cost": 0.02,
+      "Advisory Services": 0.01,
+      "Closing": 0.01
+    },
+    "reason": "Customer is being explained about the usage of investment amount for futures and options",
+    "evidence": [
+      "16 lakh",
+      "1.6 lakh",
+      "futures and options"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "futures": [
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "hedging",
+      "futures"
+    ],
+    "missing_items": [
+      "debt",
+      "downside_protection",
+      "synthetic_futures",
+      "risk_reward",
+      "market_fluctuation",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "Can you explain what debt instruments are and how they work?",
+    "reason": "The transcript does not mention debt instruments, which is a crucial topic in the awareness stage.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.33,
+    "completion_percent": 33.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    }
+  },
+  "next_best_question": "Can you explain what debt instruments are and how they work?",
+  "conversation_window": [
+    {
+      "speaker": "customer",
+      "stage": "Client Profile",
+      "text": "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "Okay."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: Can you explain what debt instruments are and how they work?
+
+
+======================================================================
+EXAMPLE #8
+Speaker: advisor
+Transcript: Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.05,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.01
+    },
+    "reason": "Advisor is explaining financial concept of downside protection",
+    "evidence": [
+      "downside protected",
+      "Nifty futures",
+      "hedge it with December put options of the Nifty"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "downside_protection": [
+        "downside protected"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "risk_reward",
+      "market_fluctuation",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What is your understanding of debt instruments and how do they fit into your investment strategy?",
+    "reason": "The transcript mentions downside protection, which is now covered, but debt instruments are still missing and are a crucial aspect of investment",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.42,
+    "completion_percent": 42.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    }
+  },
+  "next_best_question": "What is your understanding of debt instruments and how do they fit into your investment strategy?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "Okay."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What is your understanding of debt instruments and how do they fit into your investment strategy?
+
+
+======================================================================
+EXAMPLE #9
+Speaker: advisor
+Transcript: To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Cost",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.1,
+      "Plan Discussion": 0.15,
+      "Cost": 0.85,
+      "Advisory Services": 0.02,
+      "Closing": 0.01
+    },
+    "reason": "Discussion about recovering cost and returns from fixed income instruments",
+    "evidence": [
+      "recover this cost",
+      "fixed income instruments",
+      "9-10% back"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": true,
+    "from_stage": "Awareness",
+    "to_stage": "Cost",
+    "jump_type": "forward",
+    "large_jump": true,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Cost",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Cost",
+    "updated_status": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ]
+    },
+    "covered_items": [
+      "annual_cost"
+    ],
+    "missing_items": [
+      "advisory_cost",
+      "one_time_cost",
+      "sip_cost",
+      "net_cost",
+      "hedging_cost",
+      "forwarding_cost",
+      "brokerage_cost",
+      "tax_implication"
+    ],
+    "next_best_question": "What is the advisory cost associated with this investment?",
+    "reason": "The transcript does not mention advisory cost, so it's the next best question to ask.",
+    "final_status": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    },
+    "completion_score": 0.11,
+    "completion_percent": 11.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What is the advisory cost associated with this investment?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "Okay."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Cost",
+      "text": "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there."
+    }
+  ]
+}
+
+Current Stage: Cost
+Stage Completed: False
+Next Question: What is the advisory cost associated with this investment?
+
+
+======================================================================
+EXAMPLE #10
+Speaker: advisor
+Transcript: The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.05,
+      "Cost": 0.02,
+      "Advisory Services": 0.01,
+      "Closing": 0.01
+    },
+    "reason": "The conversation is explaining financial concepts, specifically risk and potential losses in an investment scenario.",
+    "evidence": [
+      "maximum risk",
+      "less than 2%",
+      "market goes down by 50%",
+      "not expected to lose more than 2% on the entire 16 lakh investment"
+    ],
+    "previous_stage": "Cost",
+    "stage_changed": true,
+    "from_stage": "Cost",
+    "to_stage": "Awareness",
+    "jump_type": "backward",
+    "large_jump": true,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "downside_protection": [
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "risk_reward",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "Can you explain how debt instruments work in this investment scenario?",
+    "reason": "The transcript discusses downside protection and market fluctuations, but debt instruments have not been explained yet.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.5,
+    "completion_percent": 50.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "Can you explain how debt instruments work in this investment scenario?",
+  "conversation_window": [
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "Okay."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Cost",
+      "text": "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: Can you explain how debt instruments work in this investment scenario?
+
+
+======================================================================
+EXAMPLE #11
+Speaker: customer
+Transcript: So 16 lakh is the minimum amount needed for an investor, right?
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.8,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.15,
+      "Awareness": 0.8,
+      "Plan Discussion": 0.02,
+      "Cost": 0.01,
+      "Advisory Services": 0.0,
+      "Closing": 0.01
+    },
+    "reason": "Customer is clarifying the minimum investment amount",
+    "evidence": [
+      "16 lakh",
+      "minimum amount needed for an investor"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "risk_reward",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What are debt instruments and how do they work?",
+    "reason": "Debt instruments are an important concept in the Awareness stage and are currently missing from the checklist status.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.5,
+    "completion_percent": 50.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What are debt instruments and how do they work?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Cost",
+      "text": "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "So 16 lakh is the minimum amount needed for an investor, right?"
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What are debt instruments and how do they work?
+
+
+======================================================================
+EXAMPLE #12
+Speaker: advisor
+Transcript: Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.1,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.02,
+      "Cost": 0.01,
+      "Advisory Services": 0.0,
+      "Closing": 0.01
+    },
+    "reason": "Customer is discussing the concept of generating returns and managing funds in relation to the previous explanation of downside protection and investment strategies",
+    "evidence": [
+      "generate more than 9 percent annual returns",
+      "create a 16 lakh position using just 10 percent funds"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "Can you explain how debt instruments work?",
+    "reason": "The most important missing item is 'debt' which is a crucial concept in the awareness stage.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "Can you explain how debt instruments work?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Cost",
+      "text": "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "So 16 lakh is the minimum amount needed for an investor, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: Can you explain how debt instruments work?
+
+
+======================================================================
+EXAMPLE #13
+Speaker: advisor
+Transcript: If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.05,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.02
+    },
+    "reason": "Advisor is explaining the concept of downside protection and investment amount",
+    "evidence": [
+      "protect the downside",
+      "invest the full 16 lakh"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "downside_protection": [
+        "protect the downside"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What are your thoughts on debt instruments and how they can be used in investment strategies?",
+    "reason": "The transcript does not mention debt instruments, which is a crucial aspect of investment and a key item in the checklist.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What are your thoughts on debt instruments and how they can be used in investment strategies?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Cost",
+      "text": "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "So 16 lakh is the minimum amount needed for an investor, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What are your thoughts on debt instruments and how they can be used in investment strategies?
+
+
+======================================================================
+EXAMPLE #14
+Speaker: customer
+Transcript: You said from 16 lakh, 10 percent goes into futures and options, right?
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.05,
+      "Cost": 0.02,
+      "Advisory Services": 0.01,
+      "Closing": 0.01
+    },
+    "reason": "Customer is seeking clarification on a financial concept discussed earlier",
+    "evidence": [
+      "from 16 lakh",
+      "10 percent goes into futures and options"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "futures": [
+        "10 percent goes into futures and options"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What is your understanding of debt instruments and how do they fit into your investment strategy?",
+    "reason": "The transcript does not provide any new information about the missing items, so the next best question is about the most important missing item, which is debt.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What is your understanding of debt instruments and how do they fit into your investment strategy?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "So 16 lakh is the minimum amount needed for an investor, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "You said from 16 lakh, 10 percent goes into futures and options, right?"
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What is your understanding of debt instruments and how do they fit into your investment strategy?
+
+
+======================================================================
+EXAMPLE #15
+Speaker: advisor
+Transcript: Yes. We buy one lot of futures and one lot of put options for the year.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.05,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.02
+    },
+    "reason": "Customer is discussing financial concepts related to futures and options",
+    "evidence": [
+      "futures",
+      "put options"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "futures": [
+        "one lot of futures"
+      ],
+      "hedging": [
+        "one lot of put options for the year"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What is your understanding of debt instruments and how do they fit into your investment strategy?",
+    "reason": "The transcript does not mention debt instruments, which is a crucial aspect of investment and a missing item in the checklist.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What is your understanding of debt instruments and how do they fit into your investment strategy?",
+  "conversation_window": [
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "So 16 lakh is the minimum amount needed for an investor, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "You said from 16 lakh, 10 percent goes into futures and options, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. We buy one lot of futures and one lot of put options for the year."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What is your understanding of debt instruments and how do they fit into your investment strategy?
+
+
+======================================================================
+EXAMPLE #16
+Speaker: customer
+Transcript: And how much do you invest in ETF?
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.8,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.1,
+      "Awareness": 0.8,
+      "Plan Discussion": 0.05,
+      "Cost": 0.01,
+      "Advisory Services": 0.01,
+      "Closing": 0.01
+    },
+    "reason": "Customer is inquiring about investment details related to ETF, which is a financial concept",
+    "evidence": [
+      "And how much do you invest in ETF",
+      "What is NIFTY ETF"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty_etf": [
+        "invest in ETF"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What is your understanding of debt instruments?",
+    "reason": "The transcript does not provide information about debt instruments, which is a crucial aspect of the awareness stage.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF",
+        "invest in ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF",
+        "invest in ETF"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What is your understanding of debt instruments?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "You said from 16 lakh, 10 percent goes into futures and options, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. We buy one lot of futures and one lot of put options for the year."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "And how much do you invest in ETF?"
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What is your understanding of debt instruments?
+
+
+======================================================================
+EXAMPLE #17
+Speaker: advisor
+Transcript: In one lot, we do not buy the Nifty ETF. You can buy Nifty ETF for 4-5 lakh also, but protection is not available for 4 lakh. Protection is available directly for 16 lakh.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.85,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.1,
+      "Awareness": 0.85,
+      "Plan Discussion": 0.02,
+      "Cost": 0.01,
+      "Advisory Services": 0.0,
+      "Closing": 0.01
+    },
+    "reason": "Customer is discussing Nifty ETF and protection, which is related to financial concepts",
+    "evidence": [
+      "Nifty ETF",
+      "protection is available directly for 16 lakh"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty_etf": [
+        "You can buy Nifty ETF for 4-5 lakh also"
+      ],
+      "downside_protection": [
+        "protection is not available for 4 lakh",
+        "Protection is available directly for 16 lakh"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What are debt instruments and how do they work?",
+    "reason": "The transcript does not mention debt instruments, so it's essential to ask about them to understand the investor's knowledge.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF",
+        "invest in ETF",
+        "You can buy Nifty ETF for 4-5 lakh also"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside",
+        "protection is not available for 4 lakh",
+        "Protection is available directly for 16 lakh"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position"
+      ],
+      "nifty_etf": [
+        "Nifty ETF",
+        "invest in ETF",
+        "You can buy Nifty ETF for 4-5 lakh also"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside",
+        "protection is not available for 4 lakh",
+        "Protection is available directly for 16 lakh"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What are debt instruments and how do they work?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "You said from 16 lakh, 10 percent goes into futures and options, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. We buy one lot of futures and one lot of put options for the year."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "And how much do you invest in ETF?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "In one lot, we do not buy the Nifty ETF. You can buy Nifty ETF for 4-5 lakh also, but protection is not available for 4 lakh. Protection is available directly for 16 lakh."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What are debt instruments and how do they work?
+
+
+======================================================================
+EXAMPLE #18
+Speaker: advisor
+Transcript: The objective of creating one lot, or 16 lakh exposure, is met using Nifty futures. One lot of Nifty futures gives equivalent market exposure.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Awareness",
+    "confidence": 0.9,
+    "stage_scores": {
+      "Introduction": 0.01,
+      "Client Profile": 0.05,
+      "Awareness": 0.9,
+      "Plan Discussion": 0.02,
+      "Cost": 0.01,
+      "Advisory Services": 0.0,
+      "Closing": 0.01
+    },
+    "reason": "The conversation is explaining financial concepts, specifically Nifty futures and market exposure.",
+    "evidence": [
+      "Nifty futures",
+      "market exposure"
+    ],
+    "previous_stage": "Awareness",
+    "stage_changed": false,
+    "from_stage": "Awareness",
+    "to_stage": null,
+    "jump_type": "same",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 5
+  },
+  "active_stage": "Awareness",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Awareness",
+    "updated_status": {
+      "nifty": [
+        "one lot, or 16 lakh exposure",
+        "one lot of Nifty futures gives equivalent market exposure"
+      ],
+      "futures": [
+        "Nifty futures",
+        "one lot of Nifty futures gives equivalent market exposure"
+      ]
+    },
+    "covered_items": [
+      "nifty",
+      "nifty_etf",
+      "downside_protection",
+      "hedging",
+      "futures",
+      "risk_reward",
+      "market_fluctuation"
+    ],
+    "missing_items": [
+      "debt",
+      "synthetic_futures",
+      "interest_arbitrage",
+      "sip",
+      "swp"
+    ],
+    "next_best_question": "What are debt instruments and how do they work?",
+    "reason": "Debt instruments are a crucial aspect of investment and are currently missing from the checklist status.",
+    "final_status": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position",
+        "one lot, or 16 lakh exposure",
+        "one lot of Nifty futures gives equivalent market exposure"
+      ],
+      "nifty_etf": [
+        "Nifty ETF",
+        "invest in ETF",
+        "You can buy Nifty ETF for 4-5 lakh also"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside",
+        "protection is not available for 4 lakh",
+        "Protection is available directly for 16 lakh"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures",
+        "one lot of Nifty futures gives equivalent market exposure"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "completion_score": 0.58,
+    "completion_percent": 58.0
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas",
+        "Fin Raster strategy"
+      ],
+      "stated_purpose": [
+        "discuss Fin Raster strategy"
+      ],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "Client Profile": {
+      "client_experience": [],
+      "webinar_awareness": [
+        "saw some YouTube videos"
+      ],
+      "existing_portfolio": [],
+      "preferred_plan": [],
+      "investment_amount": [],
+      "investment_type": [],
+      "swp_requirement": [],
+      "investment_horizon": [],
+      "debt_preference": [],
+      "existing_broker": []
+    },
+    "Awareness": {
+      "nifty": [
+        "one lot of Nifty, which comes to around 16 lakh rupees at present",
+        "16 lakh is the minimum amount needed for an investor",
+        "16 lakh position",
+        "one lot, or 16 lakh exposure",
+        "one lot of Nifty futures gives equivalent market exposure"
+      ],
+      "nifty_etf": [
+        "Nifty ETF",
+        "invest in ETF",
+        "You can buy Nifty ETF for 4-5 lakh also"
+      ],
+      "debt": [],
+      "downside_protection": [
+        "downside protected",
+        "less than 2% risk",
+        "not expected to lose more than 2% on the entire 16 lakh investment",
+        "protect the downside",
+        "protection is not available for 4 lakh",
+        "Protection is available directly for 16 lakh"
+      ],
+      "hedging": [
+        "hedge it with December put options of the Nifty",
+        "one lot of put options for the year"
+      ],
+      "futures": [
+        "Nifty futures",
+        "used for futures and options for the full year",
+        "around 1.6 lakh is used for futures and options",
+        "10 percent goes into futures and options",
+        "one lot of futures",
+        "one lot of Nifty futures gives equivalent market exposure"
+      ],
+      "synthetic_futures": [],
+      "risk_reward": [
+        "generate more than 9 percent annual returns"
+      ],
+      "market_fluctuation": [
+        "market goes down by 50%"
+      ],
+      "interest_arbitrage": [],
+      "sip": [],
+      "swp": []
+    },
+    "Cost": {
+      "annual_cost": [
+        "7.5% to 14-15%",
+        "9-10%"
+      ],
+      "advisory_cost": [],
+      "one_time_cost": [],
+      "sip_cost": [],
+      "net_cost": [],
+      "hedging_cost": [],
+      "forwarding_cost": [],
+      "brokerage_cost": [],
+      "tax_implication": []
+    }
+  },
+  "next_best_question": "What are debt instruments and how do they work?",
+  "conversation_window": [
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "You said from 16 lakh, 10 percent goes into futures and options, right?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "Yes. We buy one lot of futures and one lot of put options for the year."
+    },
+    {
+      "speaker": "customer",
+      "stage": "Awareness",
+      "text": "And how much do you invest in ETF?"
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "In one lot, we do not buy the Nifty ETF. You can buy Nifty ETF for 4-5 lakh also, but protection is not available for 4 lakh. Protection is available directly for 16 lakh."
+    },
+    {
+      "speaker": "advisor",
+      "stage": "Awareness",
+      "text": "The objective of creating one lot, or 16 lakh exposure, is met using Nifty futures. One lot of Nifty futures gives equivalent market exposure."
+    }
+  ]
+}
+
+Current Stage: Awareness
+Stage Completed: False
+Next Question: What are debt instruments and how do they work?
+
+

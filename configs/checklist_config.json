@@ -1,49 +1,119 @@
 {
   "Introduction": {
-    "introduced_self": "Introduce yourself to the client",
-    "introduced_company": "Introduce Finideas",
-    "stated_purpose": "Explain why you are calling"
+    "introduced_self": "Seller introduced themselves",
+    "introduced_company": "Seller introduced Finideas",
+    "stated_purpose": "Seller explained purpose of call",
+    "sebi_disclosure": "Seller positioned Finideas as SEBI registered advisor",
+    "no_return_promise": "Seller did not promise guaranteed returns"
   },
+
   "Client Profile": {
-    "client_experience": "Ask about client experience in stock market/trading",
-    "awareness": "Ask whether client attended webinar or watched product videos",
-    "existing_portfolio": "Ask about existing portfolio",
-    "preferred_plan": "Ask preferred plan",
-    "investment_amount": "Ask funds willing to invest",
-    "swp_requirement": "Ask whether client needs SWP",
-    "investment_horizon": "Ask investment horizon",
-    "debt_preference": "Ask preferred debt instrument"
+    "client_experience": "Client experience in stock market/trading",
+    "webinar_awareness": "Attended webinar or watched videos",
+    "existing_portfolio": "Existing portfolio discussed",
+    "preferred_plan": "Preferred plan discussed",
+    "investment_amount": "Investment amount captured",
+    "investment_type": "One-time or recurring investment preference",
+    "swp_requirement": "SWP requirement captured",
+    "investment_horizon": "Investment horizon captured",
+    "debt_preference": "Preferred debt instrument",
+    "existing_broker": "Existing broker discussed"
   },
+
   "Awareness": {
-    "nifty": "Explain NIFTY",
-    "nifty_etf": "Explain NIFTY ETF",
-    "debt": "Explain debt instruments",
-    "downside_protection": "Explain downside protection",
-    "hedging": "Explain hedging",
-    "futures": "Explain futures",
-    "risk_reward": "Explain risk reward"
+    "nifty": "NIFTY explained",
+    "nifty_etf": "NIFTY ETF explained",
+    "debt": "Debt instruments explained",
+    "downside_protection": "Downside protection explained",
+    "hedging": "Hedging explained",
+    "futures": "Futures explained",
+    "synthetic_futures": "Synthetic futures explained",
+    "risk_reward": "Risk reward explained",
+    "market_fluctuation": "Market fluctuations explained",
+    "interest_arbitrage": "Interest arbitrage explained",
+    "sip": "SIP explained",
+    "swp": "SWP explained"
   },
-  "Plan Discussion": {
-    "purpose": "Ask investment purpose",
-    "expected_returns": "Ask expected returns",
-    "risk_willingness": "Ask willingness to take risk",
-    "plan_suitability": "Explain suitable plan"
+
+  "Need & Product Fitment": {
+    "investment_purpose": "Investment purpose captured",
+    "expected_returns": "Expected returns captured",
+    "risk_appetite": "Risk appetite captured",
+    "downside_expectation": "Downside expectation captured",
+    "investment_amount": "Investment amount captured",
+    "existing_portfolio": "Existing portfolio captured",
+    "collateral_availability": "Collateral availability checked",
+    "sip_comfort": "SIP comfort checked",
+    "swp_requirement": "SWP requirement checked",
+    "preferred_product": "Preferred product identified"
   },
+
+  "Product Pitch": {
+    "product_name": "Product name explained",
+    "product_structure": "Product structure explained",
+    "minimum_investment": "Minimum investment explained",
+    "allocation_structure": "Allocation structure explained",
+    "trading_account_requirement": "Trading account requirement explained",
+    "outside_investment_requirement": "Outside investment requirement explained",
+    "sip_requirement": "SIP requirement explained",
+    "swp_availability": "SWP availability explained",
+    "investment_horizon": "Investment horizon explained",
+    "risk_explained": "Risk explained",
+    "cost_explained": "Cost explained",
+    "withdrawal_explained": "Withdrawal explained",
+    "suitability_explained": "Suitability explained"
+  },
+
   "Cost": {
-    "annual_cost": "Explain annual cost",
-    "advisory_cost": "Explain advisory cost",
-    "brokerage_cost": "Explain brokerage cost",
-    "tax_implication": "Explain tax implication"
+    "annual_cost": "Annual cost explained",
+    "advisory_cost": "Advisory cost explained",
+    "one_time_cost": "One-time cost explained",
+    "sip_cost": "SIP cost explained",
+    "net_cost": "Net cost explained",
+    "hedging_cost": "Hedging cost explained",
+    "forwarding_cost": "Forwarding cost explained",
+    "brokerage_cost": "Brokerage cost explained",
+    "tax_implication": "Tax implication explained"
   },
-  "Advisory Services": {
-    "research_support": "Explain research support",
-    "api_integration": "Explain API integration",
-    "broker_network": "Explain broker network"
+
+  "Risk & Compliance": {
+    "downside_risk": "Downside risk disclosed",
+    "market_risk": "Market fluctuation disclosed",
+    "hedging_disclosure": "Hedging explained as protection not guarantee",
+    "leverage_risk": "Leverage risk explained",
+    "no_guaranteed_returns": "No guaranteed returns stated",
+    "risk_profile_match": "Suitability linked to risk profile",
+    "investment_horizon_disclosure": "5-10 year horizon explained",
+    "kyc_before_recommendation": "KYC positioned before recommendation"
   },
+
+  "Objection Handling": {
+    "cost_objection": "Cost objection handled",
+    "sip_objection": "SIP objection handled",
+    "lockin_objection": "Lock-in objection handled",
+    "risk_objection": "Risk objection handled",
+    "collateral_objection": "Collateral objection handled",
+    "market_timing_objection": "Market timing objection handled",
+    "product_comparison": "Product comparison explained",
+    "withdrawal_objection": "Withdrawal objection handled"
+  },
+
+  "Intent Confirmation": {
+    "plan_clarity": "Plan clarity confirmed",
+    "budget_match": "Budget fit confirmed",
+    "urgency": "Urgency identified",
+    "purpose_match": "Purpose fit confirmed",
+    "timeline": "Timeline identified",
+    "next_action_readiness": "Readiness for next action confirmed"
+  },
+
   "Closing": {
-    "next_steps": "Ask about next steps",
-    "kyc": "Ask about KYC",
-    "app_download": "Ask about app download",
-    "webinar": "Ask about webinar if needed"
+    "next_steps": "Next steps discussed",
+    "kyc": "KYC discussed",
+    "app_download": "App download discussed",
+    "webinar": "Webinar suggested if needed",
+    "followup_meeting": "Follow-up meeting scheduled",
+    "fund_initiation": "Fund initiation discussed",
+    "client_commitment": "Client commitment captured"
   }
 }

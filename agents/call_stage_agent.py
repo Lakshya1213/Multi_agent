@@ -24,17 +24,6 @@ STAGE_ORDER = {
 MIN_CONFIDENCE_FOR_TRANSITION = 0.70
 
 
-STAGE_QUESTIONS = {
-    "Introduction": "Can I quickly explain who we are and how Finideas helps investors?",
-    "Client Profile": "Can you tell me your current portfolio size and investment horizon?",
-    "Awareness": "Are you already aware of NIFTY, ETF, hedging, and downside protection?",
-    "Plan Discussion": "Which plan are you more interested in: Relax, Basic, Marathon, Power Booster, or Finrakshak?",
-    "Cost": "Would you like me to explain the advisory fee, brokerage, and tax structure clearly?",
-    "Advisory Services": "Do you need help with research support, broker connection, or API integration?",
-    "Closing": "Shall we move ahead with the next step like KYC or app download?"
-}
-
-
 def safe_json_parse(text):
     try:
         start = text.find("{")
@@ -81,11 +70,26 @@ def is_large_jump(previous_stage, current_stage):
         return False
 
     jump_size = abs(STAGE_ORDER[current_stage] - STAGE_ORDER[previous_stage])
-
     return jump_size > 1
 
 
-def detect_stage(transcript, previous_stage=None):
+def update_conversation_window(conversation_window, speaker, text, stage=None, max_turns=5):
+    if conversation_window is None:
+        conversation_window = []
+
+    conversation_window.append({
+        "speaker": speaker,
+        "stage": stage,
+        "text": text
+    })
+
+    return conversation_window[-max_turns:]
+
+
+def detect_stage(transcript, previous_stage=None, conversation_window=None):
+    if conversation_window is None:
+        conversation_window = []
+
     stage_names = list(STAGES.keys())
 
     prompt = f"""
@@ -97,10 +101,20 @@ Stages:
 Stage order:
 {json.dumps(STAGE_ORDER, indent=2)}
 
-Task:
-Classify the transcript into ONE most likely stage.
+Previous stage:
+{previous_stage}
 
-Also give confidence score for EACH stage from 0 to 1.
+Recent conversation context - last 5 turns:
+{json.dumps(conversation_window, indent=2)}
+
+Task:
+Classify the CURRENT transcript into ONE most likely stage.
+
+Important:
+- Use the recent conversation context to understand short or unclear messages.
+- But classify mainly based on the current transcript.
+- Do not jump stages unless the transcript clearly supports it.
+- If current transcript is ambiguous, use previous_stage and recent context.
 
 Rules:
 1. Return JSON only.
@@ -109,7 +123,7 @@ Rules:
 3. confidence must be the score of selected stage.
 4. stage_scores must contain all stages.
 5. Scores should reflect how strongly the transcript belongs to each stage.
-6. evidence must contain exact short phrases from transcript that support the stage.
+6. evidence must contain exact short phrases from current transcript or recent context.
 7. Do not add extra text outside JSON.
 
 Return format:
@@ -132,7 +146,7 @@ Return format:
   ]
 }}
 
-Transcript:
+Current transcript:
 {transcript}
 """
 
@@ -175,11 +189,7 @@ Transcript:
     result["jump_type"] = jump_type
     result["large_jump"] = large_jump
     result["transition_allowed"] = transition_allowed
-
-    result["next_best_question"] = STAGE_QUESTIONS.get(
-        current_stage,
-        "Can you share a little more so I can guide the conversation better?"
-    )
+    result["conversation_window_size"] = len(conversation_window)
 
     return result
 
@@ -187,31 +197,55 @@ Transcript:
 if __name__ == "__main__":
 
     previous_stage = None
+    conversation_window = []
 
     examples = [
-        "Hello sir, I am calling from Finideas.",
-        "I have been investing in stocks for the last 8 years.",
-        "Yes, I attended your webinar and watched the product videos.",
-        "I currently have a portfolio of around 2 crore rupees.",
-        "I am more interested in the Finrakshak plan.",
-        "I can invest around 25 lakh initially.",
-        "I would like monthly withdrawals from my investment.",
-        "My investment horizon is around 10 years.",
-        "I prefer Bharat Bond and Gold as debt investments.",
-        "What is NIFTY ETF and how hedging works?",
-        "Tell me about Relax Plan and Power Booster.",
-        "What are your advisory charges and brokerage?",
-        "Do you provide research support and broker API integration?",
-        "Okay, what is the next step for KYC?"
+        {
+            "speaker": "advisor",
+            "text": "Hello sir, I am calling from Finideas."
+        },
+        {
+            "speaker": "customer",
+            "text": "I have been investing in stocks for the last 8 years."
+        },
+        {
+            "speaker": "customer",
+            "text": "I currently have a portfolio of around 2 crore rupees."
+        },
+        {
+            "speaker": "customer",
+            "text": "I can invest around 25 lakh initially."
+        },
+        {
+            "speaker": "customer",
+            "text": "What is NIFTY ETF and how hedging works?"
+        },
+        {
+            "speaker": "advisor",
+            "text": "Let me explain the Relax Plan and Basic Plan."
+        },
+        {
+            "speaker": "customer",
+            "text": "What are your advisory charges and brokerage?"
+        },
+        {
+            "speaker": "customer",
+            "text": "Okay, what is the next step for KYC?"
+        }
     ]
 
-    for transcript in examples:
+    for item in examples:
+        transcript = item["text"]
+        speaker = item["speaker"]
+
         print("=" * 70)
+        print("Speaker:", speaker)
         print("Transcript:", transcript)
 
         result = detect_stage(
             transcript=transcript,
-            previous_stage=previous_stage
+            previous_stage=previous_stage,
+            conversation_window=conversation_window
         )
 
         print(json.dumps(result, indent=2))
@@ -220,3 +254,14 @@ if __name__ == "__main__":
             previous_stage = result["stage"]
         else:
             print("Stage transition blocked due to low confidence or suspicious jump.")
+
+        conversation_window = update_conversation_window(
+            conversation_window=conversation_window,
+            speaker=speaker,
+            text=transcript,
+            stage=previous_stage,
+            max_turns=5
+        )
+
+        print("\nLast 5 conversation turns:")
+        print(json.dumps(conversation_window, indent=2))

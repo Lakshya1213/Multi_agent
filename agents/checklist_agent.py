@@ -15,7 +15,12 @@ def safe_json_parse(text):
     try:
         start = text.find("{")
         end = text.rfind("}") + 1
+
+        if start == -1 or end == 0:
+            raise ValueError("No JSON object found")
+
         return json.loads(text[start:end])
+
     except Exception:
         return {
             "stage": "",
@@ -80,6 +85,8 @@ Important rules:
 5. If nothing is found for an item, do not include that item in updated_status.
 6. covered_items means items that have at least one value after update.
 7. missing_items means items that still have empty list after update.
+8. next_best_question should ask only about the most important missing item.
+9. Do not repeat questions whose values are already present in current checklist status.
 
 Example:
 If transcript says: "I can invest around 25 lakh initially"
@@ -124,7 +131,6 @@ Return JSON only in this format:
     result = safe_json_parse(response.choices[0].message.content)
 
     updated_status = result.get("updated_status", {})
-
     final_status = normalized_status.copy()
 
     for item, values in updated_status.items():
@@ -165,20 +171,36 @@ if __name__ == "__main__":
 
     current_status = {
         "client_experience": [],
-        "awareness": [],
+        "webinar_awareness": [],
         "existing_portfolio": [],
         "preferred_plan": [],
         "investment_amount": [],
+        "investment_type": [],
         "swp_requirement": [],
         "investment_horizon": [],
-        "debt_preference": []
+        "debt_preference": [],
+        "existing_broker": []
     }
 
-    transcript = """
-    Customer: I have around 50 lakh portfolio.
-    Customer: I can invest around 20 lakh.
-    """
+    examples = [
+        "I have been investing in stocks for the last 8 years.",
+        "I attended your webinar yesterday.",
+        "I have around 50 lakh portfolio.",
+        "I can invest around 20 lakh.",
+        "I want monthly withdrawal also.",
+        "My horizon is around 10 years."
+    ]
 
-    result = checklist_agent(stage, transcript, current_status)
+    for transcript in examples:
+        print("=" * 70)
+        print("Transcript:", transcript)
 
-    print(json.dumps(result, indent=2))
+        result = checklist_agent(
+            stage=stage,
+            transcript=transcript,
+            current_status=current_status
+        )
+
+        print(json.dumps(result, indent=2))
+
+        current_status = result["final_status"]

@@ -1,29 +1,119 @@
 {
   "Introduction": {
-    "description": "Introduced self, company and purpose"
+    "description": "Introduced self, company and purpose",
+    "keywords": [
+      "Finideas",
+      "SEBI registered",
+      "purpose of call",
+      "introduction"
+    ],
+    "examples": [
+      "I am calling from Finideas",
+      "Let me introduce our company",
+      "Purpose of this call is"
+    ]
   },
 
   "Client Profile": {
-    "description": "Collect customer information, portfolio, investment amount, horizon"
+    "description": "Collect customer profile and investment details",
+    "keywords": [
+      "portfolio",
+      "investment amount",
+      "investment horizon",
+      "experience",
+      "SWP",
+      "broker",
+      "plan preference"
+    ],
+    "examples": [
+      "I have 50 lakh portfolio",
+      "I can invest 20 lakh",
+      "My horizon is 10 years",
+      "I need monthly withdrawal"
+    ]
   },
 
   "Awareness": {
-    "description": "Explain NIFTY, ETF, Hedging, Downside Protection"
+    "description": "Explain financial concepts before product discussion",
+    "keywords": [
+      "NIFTY",
+      "ETF",
+      "hedging",
+      "futures",
+      "downside protection",
+      "risk reward"
+    ],
+    "examples": [
+      "What is NIFTY ETF",
+      "How hedging works",
+      "Explain downside protection"
+    ]
   },
 
   "Plan Discussion": {
-    "description": "Discuss Relax, Basic, Marathon, Power Booster, Finrakshak"
+    "description": "Discuss suitable Finideas plans",
+    "keywords": [
+      "Relax",
+      "Basic",
+      "Comfort",
+      "Power Booster",
+      "Marathon",
+      "Dynamic",
+      "Finrakshak",
+      "FGF"
+    ],
+    "examples": [
+      "Tell me about Relax Plan",
+      "Is Finrakshak suitable",
+      "Compare Basic and Power Booster"
+    ]
   },
 
   "Cost": {
-    "description": "Discuss fees, advisory cost, brokerage, tax"
+    "description": "Discuss fees and charges",
+    "keywords": [
+      "cost",
+      "fee",
+      "brokerage",
+      "advisory charges",
+      "tax",
+      "GST"
+    ],
+    "examples": [
+      "What are your charges",
+      "How much is advisory fee",
+      "What is the brokerage cost"
+    ]
   },
 
   "Advisory Services": {
-    "description": "Research support, API integration, broker network"
+    "description": "Discuss support services",
+    "keywords": [
+      "research support",
+      "broker support",
+      "API integration",
+      "advisor"
+    ],
+    "examples": [
+      "Do you provide research support",
+      "Can you connect me with a broker",
+      "Do you support APIs"
+    ]
   },
 
   "Closing": {
-    "description": "Next steps, KYC, app download"
+    "description": "Finalize next steps",
+    "keywords": [
+      "KYC",
+      "app download",
+      "next step",
+      "follow up",
+      "schedule meeting"
+    ],
+    "examples": [
+      "What is the next step",
+      "How do I complete KYC",
+      "When should we meet again"
+    ]
   }
 }

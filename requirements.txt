@@ -1,5 +1,11 @@
-langgraph
+fastapi
+uvicorn
+python-multipart
+python-docx
+PyMuPDF
+groq
+python-dotenv
 langchain
 langchain-groq
-python-dotenv
+langgraph
 pydantic
