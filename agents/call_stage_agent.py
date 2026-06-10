@@ -2,11 +2,17 @@ import json
 import os
 from groq import Groq
 from dotenv import load_dotenv
+from openai import OpenAI
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
+API_KEY="llmapi_12012d53f7ea92fee92d5888c4cd098a2de420d2a24051afde16257a551c135b"
+client = OpenAI(
+    api_key=API_KEY,
+    base_url="https://api.llmapi.ai/v1"
+)
 with open(r"D:\Multi_agent\configs\call_stage_config.json", "r") as f:
     STAGES = json.load(f)
 
@@ -151,7 +157,7 @@ Current transcript:
 """
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="gpt-4o-mini",
         temperature=0,
         messages=[
             {"role": "user", "content": prompt}
@@ -159,6 +165,16 @@ Current transcript:
     )
 
     result = safe_json_parse(response.choices[0].message.content)
+    
+    usage = response.usage
+
+    result["llm_usage"] = {
+        "agent": "call_stage_agent",
+        "llm_calls": 1,
+        "prompt_tokens": usage.prompt_tokens if usage else 0,
+        "completion_tokens": usage.completion_tokens if usage else 0,
+        "total_tokens": usage.total_tokens if usage else 0
+    }
 
     current_stage = result.get("stage", "Unknown")
     confidence = float(result.get("confidence", 0.0))

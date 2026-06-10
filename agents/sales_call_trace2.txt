@@ -1,0 +1,142 @@
+======================================================================
+EXAMPLE #1
+Speaker: advisor
+Transcript: Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir.
+
+RESULT:
+{
+  "stage_detection": {
+    "stage": "Introduction",
+    "confidence": 0.95,
+    "stage_scores": {
+      "Introduction": 0.95,
+      "Client Profile": 0.01,
+      "Awareness": 0.0,
+      "Plan Discussion": 0.0,
+      "Cost": 0.0,
+      "Advisory Services": 0.0,
+      "Closing": 0.0
+    },
+    "reason": "Introduction of self and company",
+    "evidence": [
+      "Good afternoon, this is Mahesh calling from Fin Ideas"
+    ],
+    "llm_usage": {
+      "agent": "call_stage_agent",
+      "llm_calls": 1,
+      "prompt_tokens": 1058,
+      "completion_tokens": 129,
+      "total_tokens": 1187
+    },
+    "previous_stage": null,
+    "stage_changed": false,
+    "from_stage": null,
+    "to_stage": null,
+    "jump_type": "none",
+    "large_jump": false,
+    "transition_allowed": true,
+    "conversation_window_size": 0
+  },
+  "active_stage": "Introduction",
+  "stage_completed": false,
+  "checklist": {
+    "stage": "Introduction",
+    "updated_status": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas"
+      ]
+    },
+    "covered_items": [
+      "introduced_self",
+      "introduced_company"
+    ],
+    "missing_items": [
+      "stated_purpose",
+      "sebi_disclosure",
+      "no_return_promise"
+    ],
+    "next_best_question": "Can you please tell me the purpose of your call today?",
+    "reason": "Introduction stage requires purpose of call to be stated",
+    "llm_usage": {
+      "agent": "checklist_agent",
+      "llm_calls": 1,
+      "prompt_tokens": 462,
+      "completion_tokens": 113,
+      "total_tokens": 575
+    },
+    "final_status": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas"
+      ],
+      "stated_purpose": [],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    },
+    "completion_score": 0.4,
+    "completion_percent": 40.0
+  },
+  "stage_assistance": {
+    "stage": "Introduction",
+    "message": "You are currently in Introduction stage. Remaining checklist items are: stated_purpose, sebi_disclosure, no_return_promise.",
+    "remaining_items": [
+      "stated_purpose",
+      "sebi_disclosure",
+      "no_return_promise"
+    ]
+  },
+  "checklist_status_by_stage": {
+    "Introduction": {
+      "introduced_self": [
+        "Mahesh"
+      ],
+      "introduced_company": [
+        "Fin Ideas"
+      ],
+      "stated_purpose": [],
+      "sebi_disclosure": [],
+      "no_return_promise": []
+    }
+  },
+  "next_best_question": "Can you please tell me the purpose of your call today?",
+  "conversation_window": [
+    {
+      "speaker": "advisor",
+      "stage": "Introduction",
+      "text": "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    }
+  ],
+  "llm_usage": {
+    "total_llm_calls": 2,
+    "total_prompt_tokens": 1520,
+    "total_completion_tokens": 242,
+    "total_tokens": 1762,
+    "by_agent": {
+      "call_stage_agent": {
+        "agent": "call_stage_agent",
+        "llm_calls": 1,
+        "prompt_tokens": 1058,
+        "completion_tokens": 129,
+        "total_tokens": 1187
+      },
+      "checklist_agent": {
+        "agent": "checklist_agent",
+        "llm_calls": 1,
+        "prompt_tokens": 462,
+        "completion_tokens": 113,
+        "total_tokens": 575
+      }
+    }
+  }
+}
+
+Current Stage: Introduction
+Stage Completed: False
+Next Question: Can you please tell me the purpose of your call today?
+
+
