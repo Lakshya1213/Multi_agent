@@ -1,0 +1,108 @@
+{
+    "speaker": "customer",
+    "transcript": "I have been investing in stocks for the last 8 years.",
+    "previous_stage": "Client Profile",
+    "previous_stage_before_detection": null,
+    "checklist_status_by_stage": {
+        "Client Profile": {
+            "client_experience": [
+                "8 years"
+            ],
+            "webinar_awareness": [],
+            "existing_portfolio": [],
+            "preferred_plan": [],
+            "investment_amount": [],
+            "investment_type": [],
+            "swp_requirement": [],
+            "investment_horizon": [],
+            "debt_preference": [],
+            "existing_broker": []
+        }
+    },
+    "conversation_window": [],
+    "stage_detection": {
+        "stage": "Client Profile",
+        "confidence": 0.85,
+        "stage_scores": {
+            "Introduction": 0.05,
+            "Client Profile": 0.85,
+            "Awareness": 0.1,
+            "Plan Discussion": 0.05,
+            "Cost": 0.02,
+            "Advisory Services": 0.01,
+            "Closing": 0.01
+        },
+        "reason": "Customer is providing information about their investment experience.",
+        "evidence": [
+            "investing in stocks for the last 8 years"
+        ],
+        "llm_usage": {
+            "agent": "call_stage_agent",
+            "llm_calls": 1,
+            "prompt_tokens": 1017,
+            "completion_tokens": 131,
+            "total_tokens": 1148
+        },
+        "previous_stage": "Introduction",
+        "stage_changed": true,
+        "from_stage": "Introduction",
+        "to_stage": "Client Profile",
+        "jump_type": "forward",
+        "large_jump": false,
+        "transition_allowed": true,
+        "conversation_window_size": 0
+    },
+    "active_stage": "Client Profile",
+    "checklist": {
+        "stage": "Client Profile",
+        "updated_status": {
+            "client_experience": [
+                "8 years"
+            ]
+        },
+        "covered_items": [
+            "client_experience"
+        ],
+        "missing_items": [
+            "webinar_awareness",
+            "existing_portfolio",
+            "preferred_plan",
+            "investment_amount",
+            "investment_type",
+            "swp_requirement",
+            "investment_horizon",
+            "debt_preference",
+            "existing_broker"
+        ],
+        "next_best_question": "Have you attended any webinars or watched videos related to investing?",
+        "reason": "To gather information on the client's awareness and education in investing.",
+        "llm_usage": {
+            "agent": "checklist_agent",
+            "llm_calls": 1,
+            "prompt_tokens": 507,
+            "completion_tokens": 135,
+            "total_tokens": 642
+        },
+        "final_status": {
+            "client_experience": [
+                "8 years"
+            ],
+            "webinar_awareness": [],
+            "existing_portfolio": [],
+            "preferred_plan": [],
+            "investment_amount": [],
+            "investment_type": [],
+            "swp_requirement": [],
+            "investment_horizon": [],
+            "debt_preference": [],
+            "existing_broker": []
+        },
+        "completion_score": 0.1,
+        "completion_percent": 10.0
+    },
+    "stage_completed": false,
+    "next_best_question": "Have you attended any webinars or watched videos related to investing?",
+    "stage_pitch": null,
+    "llm_usage": null,
+    "result": null
+}

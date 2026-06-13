@@ -26,10 +26,10 @@ examples = [
     "Yes, I attended your webinar and watched the product videos.",
     "I currently have a portfolio of around 2 crore rupees.",
     "I am more interested in the Finrakshak plan.",
-    "I can invest around 25 lakh initially.",
-    "I would like monthly withdrawals from my investment.",
-    "My investment horizon is around 10 years.",
-    "I prefer Bharat Bond and Gold as debt investments."
+    # "I can invest around 25 lakh initially.",
+    # "I would like monthly withdrawals from my investment.",
+    # "My investment horizon is around 10 years.",
+    # "I prefer Bharat Bond and Gold as debt investments."
 ]
 
 for text in examples:

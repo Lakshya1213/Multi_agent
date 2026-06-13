@@ -95,22 +95,36 @@ async def upload_file(file: UploadFile = File(...)):
                 "error": "Could not detect Advisor: or Customer: lines in uploaded file"
             }
 
-        final_result = None
+        turn_results = []
 
-        for turn in turns[:5]:
-            final_result = sales_call_agent(
-                transcript=turn["text"],
-                speaker=turn["speaker"],
-                previous_stage=previous_stage,
-                checklist_status_by_stage=checklist_status_by_stage,
-                conversation_window=conversation_window
-            )
+        for index, turn in enumerate(turns[:6], start=1):
+                result = sales_call_agent(
+                    transcript=turn["text"],
+                    speaker=turn["speaker"],
+                    previous_stage=previous_stage,
+                    checklist_status_by_stage=checklist_status_by_stage,
+                    conversation_window=conversation_window
+                )
 
-            previous_stage = final_result["active_stage"]
-            checklist_status_by_stage = final_result["checklist_status_by_stage"]
-            conversation_window = final_result["conversation_window"]
+                previous_stage = result["active_stage"]
+                checklist_status_by_stage = result["checklist_status_by_stage"]
+                conversation_window = result["conversation_window"]
+                
 
-        return final_result
+                turn_results.append({
+                    "turn_number": index,
+                    "speaker": turn["speaker"],
+                    "transcript": turn["text"],
+                    "result": result
+                })
+
+        print(turn_results)
+        return {
+                "total_turns_detected": len(turns),
+                "processed_turns": len(turn_results),
+                "turn_results": turn_results,
+                "final_result": turn_results[-1]["result"] if turn_results else None
+        }
 
     finally:
         if os.path.exists(temp_path):

@@ -1,4 +1,4 @@
-======================================================================
+
 EXAMPLE #1
 Speaker: advisor
 Transcript: Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir.
@@ -11,7 +11,7 @@ RESULT:
     "stage_scores": {
       "Introduction": 0.95,
       "Client Profile": 0.02,
-      "Awareness": 0.01,
+      "Awarene======================================================================ss": 0.01,
       "Plan Discussion": 0.01,
       "Cost": 0.01,
       "Advisory Services": 0.01,

@@ -1,0 +1,230 @@
+{
+    "speaker": "customer",
+    "transcript": "I have been investing in stocks for the last 8 years.",
+    "previous_stage": "Client Profile",
+    "checklist_status_by_stage": {
+        "Client Profile": {
+            "client_experience": [
+                "8 years"
+            ],
+            "webinar_awareness": [],
+            "existing_portfolio": [],
+            "preferred_plan": [],
+            "investment_amount": [],
+            "investment_type": [],
+            "swp_requirement": [],
+            "investment_horizon": [],
+            "debt_preference": [],
+            "existing_broker": []
+        }
+    },
+    "conversation_window": [
+        {
+            "speaker": "customer",
+            "stage": "Client Profile",
+            "text": "I have been investing in stocks for the last 8 years."
+        }
+    ],
+    "result": {
+        "stage_detection": {
+            "stage": "Client Profile",
+            "confidence": 0.85,
+            "stage_scores": {
+                "Introduction": 0.05,
+                "Client Profile": 0.85,
+                "Awareness": 0.1,
+                "Plan Discussion": 0.05,
+                "Cost": 0.02,
+                "Advisory Services": 0.01,
+                "Closing": 0.01
+            },
+            "reason": "Customer is providing information about their investment experience.",
+            "evidence": [
+                "investing in stocks for the last 8 years"
+            ],
+            "llm_usage": {
+                "agent": "call_stage_agent",
+                "llm_calls": 1,
+                "prompt_tokens": 1017,
+                "completion_tokens": 131,
+                "total_tokens": 1148
+            },
+            "previous_stage": "Introduction",
+            "stage_changed": true,
+            "from_stage": "Introduction",
+            "to_stage": "Client Profile",
+            "jump_type": "forward",
+            "large_jump": false,
+            "transition_allowed": true,
+            "conversation_window_size": 0
+        },
+        "active_stage": "Client Profile",
+        "stage_completed": false,
+        "checklist": {
+            "stage": "Client Profile",
+            "updated_status": {
+                "client_experience": [
+                    "8 years"
+                ]
+            },
+            "covered_items": [
+                "client_experience"
+            ],
+            "missing_items": [
+                "webinar_awareness",
+                "existing_portfolio",
+                "preferred_plan",
+                "investment_amount",
+                "investment_type",
+                "swp_requirement",
+                "investment_horizon",
+                "debt_preference",
+                "existing_broker"
+            ],
+            "next_best_question": "Have you attended any webinars or watched videos related to investing?",
+            "reason": "To gather information on the client's awareness and education in investing.",
+            "llm_usage": {
+                "agent": "checklist_agent",
+                "llm_calls": 1,
+                "prompt_tokens": 507,
+                "completion_tokens": 135,
+                "total_tokens": 642
+            },
+            "final_status": {
+                "client_experience": [
+                    "8 years"
+                ],
+                "webinar_awareness": [],
+                "existing_portfolio": [],
+                "preferred_plan": [],
+                "investment_amount": [],
+                "investment_type": [],
+                "swp_requirement": [],
+                "investment_horizon": [],
+                "debt_preference": [],
+                "existing_broker": []
+            },
+            "completion_score": 0.1,
+            "completion_percent": 10.0
+        },
+        "stage_assistance": {
+            "stage": "Client Profile",
+            "message": "You are currently in Client Profile stage. Remaining checklist items are: webinar_awareness, existing_portfolio, preferred_plan, investment_amount, investment_type, swp_requirement, investment_horizon, debt_preference, existing_broker.",
+            "remaining_items": [
+                "webinar_awareness",
+                "existing_portfolio",
+                "preferred_plan",
+                "investment_amount",
+                "investment_type",
+                "swp_requirement",
+                "investment_horizon",
+                "debt_preference",
+                "existing_broker"
+            ]
+        },
+        "stage_pitch": {
+            "pitch": "Now shift the conversation to client profiling. First acknowledge the client, then ask about their existing portfolio and how much they are planning to invest.",
+            "objective": "Collect important client profile details",
+            "covered_items_summary": "Client has already shared stock market experience.",
+            "focus_items": [
+                "existing_portfolio",
+                "investment_amount",
+                "investment_horizon"
+            ],
+            "next_question": "Can you tell me about your current portfolio size and how much you are planning to invest?",
+            "reason": "Stage changed from Introduction to Client Profile",
+            "llm_usage": {
+                "agent": "stage_pitch_agent",
+                "llm_calls": 1,
+                "prompt_tokens": 295,
+                "completion_tokens": 117,
+                "total_tokens": 412
+            }
+        },
+        "checklist_status_by_stage": {
+            "Client Profile": {
+                "client_experience": [
+                    "8 years"
+                ],
+                "webinar_awareness": [],
+                "existing_portfolio": [],
+                "preferred_plan": [],
+                "investment_amount": [],
+                "investment_type": [],
+                "swp_requirement": [],
+                "investment_horizon": [],
+                "debt_preference": [],
+                "existing_broker": []
+            }
+        },
+        "next_best_question": "Have you attended any webinars or watched videos related to investing?",
+        "conversation_window": [
+            {
+                "speaker": "customer",
+                "stage": "Client Profile",
+                "text": "I have been investing in stocks for the last 8 years."
+            }
+        ],
+        "llm_usage": {
+            "total_llm_calls": 3,
+            "total_prompt_tokens": 1819,
+            "total_completion_tokens": 383,
+            "total_tokens": 2202,
+            "by_agent": {
+                "call_stage_agent": {
+                    "agent": "call_stage_agent",
+                    "llm_calls": 1,
+                    "prompt_tokens": 1017,
+                    "completion_tokens": 131,
+                    "total_tokens": 1148
+                },
+                "checklist_agent": {
+                    "agent": "checklist_agent",
+                    "llm_calls": 1,
+                    "prompt_tokens": 507,
+                    "completion_tokens": 135,
+                    "total_tokens": 642
+                },
+                "stage_pitch_agent": {
+                    "agent": "stage_pitch_agent",
+                    "llm_calls": 1,
+                    "prompt_tokens": 295,
+                    "completion_tokens": 117,
+                    "total_tokens": 412
+                }
+            }
+        }
+    },
+    "active_stage": "Client Profile",
+    "stage_completed": false,
+    "next_best_question": "Have you attended any webinars or watched videos related to investing?",
+    "llm_usage": {
+        "total_llm_calls": 3,
+        "total_prompt_tokens": 1819,
+        "total_completion_tokens": 383,
+        "total_tokens": 2202,
+        "by_agent": {
+            "call_stage_agent": {
+                "agent": "call_stage_agent",
+                "llm_calls": 1,
+                "prompt_tokens": 1017,
+                "completion_tokens": 131,
+                "total_tokens": 1148
+            },
+            "checklist_agent": {
+                "agent": "checklist_agent",
+                "llm_calls": 1,
+                "prompt_tokens": 507,
+                "completion_tokens": 135,
+                "total_tokens": 642
+            },
+            "stage_pitch_agent": {
+                "agent": "stage_pitch_agent",
+                "llm_calls": 1,
+                "prompt_tokens": 295,
+                "completion_tokens": 117,
+                "total_tokens": 412
+            }
+        }
+    }
+}

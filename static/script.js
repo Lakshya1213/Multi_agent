@@ -13,76 +13,76 @@ let selectedFile = null;
 const sampleExamples = [
   {
     speaker: "advisor",
-    text: "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir."
+    text: "Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir.",
   },
   {
     speaker: "advisor",
-    text: "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?"
+    text: "You are interested in our Fin Raster strategy, where we provide hedging solutions for existing mutual fund and equity portfolios. Is this a good time to discuss?",
   },
   {
     speaker: "customer",
-    text: "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment."
+    text: "Yes. I saw some YouTube videos and wanted to know the minimum amount needed for investment.",
   },
   {
     speaker: "advisor",
-    text: "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty."
+    text: "We run two kinds of models. In the advisory model, we create a new portfolio using Nifty ETF and Nifty futures, and hedge it with December put options of the Nifty.",
   },
   {
     speaker: "advisor",
-    text: "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present."
+    text: "The minimum investment is one lot of Nifty, which comes to around 16 lakh rupees at present.",
   },
   {
     speaker: "customer",
-    text: "Okay."
+    text: "Okay.",
   },
   {
     speaker: "advisor",
-    text: "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year."
+    text: "Out of the 16 lakh, around 10 percent, that is 1.6 lakh, is used for futures and options for the full year.",
   },
   {
     speaker: "advisor",
-    text: "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected."
+    text: "Using this 1.6 lakh, we create a position equivalent to 16 lakh in Nifty, which is downside protected.",
   },
   {
     speaker: "advisor",
-    text: "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there."
+    text: "To recover this cost, the remaining funds are parked in fixed income instruments ranging from 7.5% to 14-15%. You get around 9-10% back from there.",
   },
   {
     speaker: "advisor",
-    text: "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment."
+    text: "The maximum risk in this scenario is less than 2%. Even if the market goes down by 50%, you are not expected to lose more than 2% on the entire 16 lakh investment.",
   },
   {
     speaker: "customer",
-    text: "So 16 lakh is the minimum amount needed for an investor, right?"
+    text: "So 16 lakh is the minimum amount needed for an investor, right?",
   },
   {
     speaker: "advisor",
-    text: "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns."
+    text: "Yes. If you can create a 16 lakh position using just 10 percent funds, you may manage the remaining 90 percent yourself, but only if you can generate more than 9 percent annual returns.",
   },
   {
     speaker: "advisor",
-    text: "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside."
+    text: "If you are not sure about generating that return yourself, it is better to invest the full 16 lakh and protect the downside.",
   },
   {
     speaker: "customer",
-    text: "You said from 16 lakh, 10 percent goes into futures and options, right?"
+    text: "You said from 16 lakh, 10 percent goes into futures and options, right?",
   },
   {
     speaker: "advisor",
-    text: "Yes. We buy one lot of futures and one lot of put options for the year."
+    text: "Yes. We buy one lot of futures and one lot of put options for the year.",
   },
   {
     speaker: "customer",
-    text: "And how much do you invest in ETF?"
+    text: "And how much do you invest in ETF?",
   },
   {
     speaker: "advisor",
-    text: "In one lot, we do not buy the Nifty ETF. You can buy Nifty ETF for 4-5 lakh also, but protection is not available for 4 lakh. Protection is available directly for 16 lakh."
+    text: "In one lot, we do not buy the Nifty ETF. You can buy Nifty ETF for 4-5 lakh also, but protection is not available for 4 lakh. Protection is available directly for 16 lakh.",
   },
   {
     speaker: "advisor",
-    text: "The objective of creating one lot, or 16 lakh exposure, is met using Nifty futures. One lot of Nifty futures gives equivalent market exposure."
-  }
+    text: "The objective of creating one lot, or 16 lakh exposure, is met using Nifty futures. One lot of Nifty futures gives equivalent market exposure.",
+  },
 ];
 
 const sampleButtons = document.querySelectorAll(".sample-btn");
@@ -92,7 +92,10 @@ sampleButtons.forEach((button) => {
     const index = Number(button.dataset.index);
     const example = sampleExamples[index];
 
-    document.getElementById("speakerSelect").value = formatSpeakerValue(example.speaker);
+    document.getElementById("speakerSelect").value = formatSpeakerValue(
+      example.speaker,
+    );
+
     transcriptInput.value = example.text;
 
     tabs.forEach((btn) => btn.classList.remove("active"));
@@ -153,8 +156,7 @@ analyzeBtn.addEventListener("click", async () => {
     if (isUploadTab) {
       if (!selectedFile) {
         alert("Please upload a file first.");
-        analyzeBtn.textContent = "Analyze Conversation";
-        analyzeBtn.disabled = false;
+        resetAnalyzeButton();
         return;
       }
 
@@ -169,8 +171,7 @@ analyzeBtn.addEventListener("click", async () => {
     } else {
       if (!transcript.trim()) {
         alert("Please enter transcript first.");
-        analyzeBtn.textContent = "Analyze Conversation";
-        analyzeBtn.disabled = false;
+        resetAnalyzeButton();
         return;
       }
 
@@ -190,22 +191,39 @@ analyzeBtn.addEventListener("click", async () => {
       throw new Error("API request failed");
     }
 
-    const result = await response.json();
+    const backendData = await response.json();
+    console.log("Backend Result:", backendData);
 
-    if (result.error) {
-      alert(result.error);
-      analyzeBtn.textContent = "Analyze Conversation";
-      analyzeBtn.disabled = false;
+    if (backendData.error) {
+      alert(backendData.error);
+      resetAnalyzeButton();
       return;
     }
 
-    console.log("Backend Result:", result);
+    let uiResult;
 
-    updateAgentOutput(result);
-    updateChecklist(result);
-    updateConversationHistory(result.conversation_window);
-    updateOutputAnalysis(result);
-    updateSummary(result);
+    // Upload response
+    if (backendData.final_result) {
+      uiResult = backendData.final_result;
+    }
+    // Normal /analyze response
+    else {
+      uiResult = backendData;
+    }
+
+    console.log("UI Result:", uiResult);
+
+    updateAgentOutput(uiResult);
+    updateChecklist(uiResult);
+    updateOutputAnalysis(uiResult);
+    updateSummary(uiResult);
+
+    // For uploaded file: show all processed turns
+    if (backendData.turn_results) {
+      updateUploadedTurnHistory(backendData.turn_results);
+    } else {
+      updateConversationHistory(uiResult.conversation_window);
+    }
 
     results.classList.remove("hidden");
 
@@ -218,9 +236,13 @@ analyzeBtn.addEventListener("click", async () => {
     alert("Backend error. Check FastAPI terminal.");
   }
 
+  resetAnalyzeButton();
+});
+
+function resetAnalyzeButton() {
   analyzeBtn.textContent = "Analyze Conversation";
   analyzeBtn.disabled = false;
-});
+}
 
 // ------------------------------
 // Update Agent Output
@@ -234,16 +256,15 @@ function updateAgentOutput(result) {
   document.getElementById("confidenceScore").textContent =
     Math.round(confidence * 100) + "%";
 
-  document.getElementById("stageCompleted").textContent =
-    result.stage_completed ? "Yes" : "No";
+  document.getElementById("stageCompleted").textContent = result.stage_completed
+    ? "Yes"
+    : "No";
 
   const progress = result.checklist?.completion_percent || 0;
 
-  document.getElementById("checklistProgress").textContent =
-    progress + "%";
+  document.getElementById("checklistProgress").textContent = progress + "%";
 
-  document.getElementById("progressFill").style.width =
-    progress + "%";
+  document.getElementById("progressFill").style.width = progress + "%";
 
   document.getElementById("nextQuestion").textContent =
     result.next_best_question || "No question generated.";
@@ -307,7 +328,10 @@ function updateConversationHistory(conversationWindow) {
 // ------------------------------
 function updateOutputAnalysis(result) {
   const stageReason = result.stage_detection?.reason || "No reason available.";
-  const checklistReason = result.checklist?.reason || "No checklist reason available.";
+
+  const checklistReason =
+    result.checklist?.reason || "No checklist reason available.";
+
   const missingItems = result.checklist?.missing_items || [];
 
   const whyStage = document.getElementById("whyStage");
@@ -347,8 +371,7 @@ function updateSummary(result) {
   const summaryNextStep = document.getElementById("summaryNextStep");
 
   if (summaryIntent) {
-    summaryIntent.textContent =
-      `Current conversation is in ${result.active_stage || "Unknown"} stage.`;
+    summaryIntent.textContent = `Current conversation is in ${result.active_stage || "Unknown"} stage.`;
   }
 
   if (summaryConcern) {
@@ -378,7 +401,7 @@ newAnalysisBtn.addEventListener("click", async () => {
 
   try {
     await fetch("/reset", {
-      method: "POST"
+      method: "POST",
     });
   } catch (error) {
     console.error("Reset error:", error);
@@ -386,7 +409,7 @@ newAnalysisBtn.addEventListener("click", async () => {
 
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
@@ -411,4 +434,32 @@ function formatSpeakerValue(speaker) {
   if (lower === "customer") return "Customer";
 
   return "Customer";
+}
+
+
+function updateUploadedTurnHistory(turnResults) {
+  const chatBox = document.getElementById("conversationHistory");
+  chatBox.innerHTML = "";
+
+  if (!turnResults || turnResults.length === 0) {
+    chatBox.innerHTML = "<p>No conversation history yet.</p>";
+    return;
+  }
+
+  turnResults.forEach((turn) => {
+    const div = document.createElement("div");
+
+    const speakerClass =
+      turn.speaker === "advisor" ? "advisor" : "customer";
+
+    div.className = `bubble ${speakerClass}`;
+    div.innerHTML = `
+      <strong>Turn ${turn.turn_number} - ${formatText(turn.speaker)}:</strong>
+      ${turn.transcript}
+      <br>
+      <small>Stage: ${turn.result.active_stage}</small>
+    `;
+
+    chatBox.appendChild(div);
+  });
 }
