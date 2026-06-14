@@ -1,12 +1,7 @@
 from graph.workflow import build_live_assist_graph
 import json
 
-
-graph = build_live_assist_graph()
-
-previous_stage = None
-checklist_status_by_stage = {}
-conversation_window = []
+app = build_live_assist_graph()
 
 examples = [
     {
@@ -31,87 +26,106 @@ examples = [
     }
 ]
 
+previous_stage = None
+checklist_status_by_stage = {}
+conversation_window = []
 
-with open("langgraph_trace.txt", "w", encoding="utf-8") as f:
+all_results = []
 
-    for idx, item in enumerate(examples, start=1):
+for index, item in enumerate(examples, start=1):
+    state = {
+        "speaker": item["speaker"],
+        "transcript": item["text"],
+        "speaker_route": None,
 
-        speaker = item["speaker"]
-        transcript = item["text"]
+        "previous_stage": previous_stage,
+        "previous_stage_before_detection": None,
 
-        initial_state = {
-            "speaker": speaker,
-            "transcript": transcript,
+        "checklist_status_by_stage": checklist_status_by_stage,
+        "conversation_window": conversation_window,
+        "session_id": "example_test_session",
 
-            "previous_stage": previous_stage,
-            "previous_stage_before_detection": None,
+        "stage_detection": None,
+        "active_stage": None,
 
-            "checklist_status_by_stage": checklist_status_by_stage,
-            "conversation_window": conversation_window,
+        "checklist": None,
+        "stage_completed": False,
+        "next_best_question": None,
 
-            "stage_detection": None,
-            "active_stage": None,
+        "rag": None,
+        "rag_answer": None,
+        "rag_context": None,
+        "rag_top_chunks": [],
+        "rag_metadata": None,
 
-            "checklist": None,
-            "stage_completed": False,
-            "next_best_question": None,
+        "stage_pitch": None,
+        "suggested_question": None,
 
-            "stage_pitch": None,
-            "suggested_question": None,
+        "llm_usage": None,
+        "result": None,
+    }
 
-            "llm_usage": None,
-            "result": None
-        }
+    result = app.invoke(state)
 
-        final_state = graph.invoke(initial_state)
+    print("=" * 80)
+    print("TURN:", index)
+    print("Speaker:", result.get("speaker"))
+    print("Route:", result.get("speaker_route"))
+    print("Text:", item["text"])
+    print("Active stage:", result.get("active_stage"))
+    print("Previous stage:", result.get("previous_stage_before_detection"))
+    print("RAG answer:", result.get("rag_answer"))
+    print("Stage pitch:", result.get("stage_pitch"))
+    print("Next question:", result.get("next_best_question"))
+    print("Suggested question:", result.get("suggested_question"))
 
-        result = {
-            "stage_detection": final_state.get("stage_detection"),
-            "active_stage": final_state.get("active_stage"),
-            "stage_completed": final_state.get("stage_completed"),
-            "checklist": final_state.get("checklist"),
-            "stage_pitch": final_state.get("stage_pitch"),
-            "suggested_question": final_state.get("suggested_question"),
-            "checklist_status_by_stage": final_state.get("checklist_status_by_stage"),
-            "next_best_question": final_state.get("next_best_question"),
-            "conversation_window": final_state.get("conversation_window"),
-            "llm_usage": final_state.get("llm_usage")
-        }
+    turn_output = {
+        "turn": index,
+        "speaker": result.get("speaker"),
+        "route": result.get("speaker_route"),
+        "text": item["text"],
+        "previous_stage": result.get("previous_stage_before_detection"),
+        "active_stage": result.get("active_stage"),
+        "rag_answer": result.get("rag_answer"),
+        "rag_status": (result.get("rag") or {}).get("status"),
+        "rag_metadata": result.get("rag_metadata"),
+        "stage_pitch": result.get("stage_pitch"),
+        "next_question": result.get("next_best_question"),
+        "suggested_question": result.get("suggested_question"),
+        "stage_completed": result.get("stage_completed"),
+        "checklist": result.get("checklist"),
+        "llm_usage": result.get("llm_usage"),
+    }
 
-        f.write("=" * 70 + "\n")
-        f.write(f"EXAMPLE #{idx}\n")
-        f.write(f"Speaker: {speaker}\n")
-        f.write(f"Transcript: {transcript}\n\n")
+    all_results.append(turn_output)
 
-        f.write("RESULT:\n")
-        f.write(json.dumps(result, indent=2, ensure_ascii=False))
-        f.write("\n\n")
+    previous_stage = result.get("active_stage")
+    checklist_status_by_stage = result.get("checklist_status_by_stage", {})
+    conversation_window = result.get("conversation_window", [])
 
-        f.write(f"Current Stage: {final_state.get('active_stage')}\n")
-        f.write(f"Stage Completed: {final_state.get('stage_completed')}\n")
-        f.write(f"Next Question: {final_state.get('next_best_question')}\n")
+with open("live_assist_output.json", "w", encoding="utf-8") as f:
+    json.dump(all_results, f, indent=4, ensure_ascii=False, default=str)
 
-        if final_state.get("stage_pitch"):
-            f.write("Stage Pitch:\n")
-            f.write(
-                json.dumps(
-                    final_state.get("stage_pitch"),
-                    indent=2,
-                    ensure_ascii=False
-                )
-            )
-            f.write("\n")
+with open("live_assist_output.txt", "w", encoding="utf-8") as f:
+    for item in all_results:
+        f.write("=" * 80 + "\n")
+        f.write(f"TURN: {item['turn']}\n")
+        f.write(f"Speaker: {item['speaker']}\n")
+        f.write(f"Route: {item['route']}\n")
+        f.write(f"Text: {item['text']}\n")
+        f.write(f"Previous Stage: {item['previous_stage']}\n")
+        f.write(f"Active Stage: {item['active_stage']}\n")
+        f.write(f"RAG Status: {item['rag_status']}\n")
+        f.write(f"RAG Answer: {item['rag_answer']}\n")
+        f.write(f"RAG Metadata: {item['rag_metadata']}\n")
+        f.write(f"Stage Pitch: {item['stage_pitch']}\n")
+        f.write(f"Next Question: {item['next_question']}\n")
+        f.write(f"Suggested Question: {item['suggested_question']}\n")
+        f.write(f"Stage Completed: {item['stage_completed']}\n")
+        f.write(f"Checklist: {item['checklist']}\n")
+        f.write(f"LLM Usage: {item['llm_usage']}\n")
+        f.write("\n")
 
-        if final_state.get("suggested_question"):
-            f.write(f"Suggested Question: {final_state.get('suggested_question')}\n")
-
-        f.write("\n\n")
-
-        previous_stage = final_state.get("active_stage")
-        checklist_status_by_stage = final_state.get("checklist_status_by_stage", {})
-        conversation_window = final_state.get("conversation_window", [])
-
-        print(f"Processed example {idx}/{len(examples)}")
-
-
-print("\nOutput saved to langgraph_trace.txt")
+print("\nSaved successfully:")
+print("1. live_assist_output.json")
+print("2. live_assist_output.txt")

@@ -9,3 +9,10 @@ langchain
 langchain-groq
 langgraph
 pydantic
+pydantic-settings
+aiosqlite
+langchain-openai
+chromadb
+sentence-transformers
+rank-bm25
+numpy

@@ -10,12 +10,12 @@ RESULT:
     "confidence": 0.95,
     "stage_scores": {
       "Introduction": 0.95,
-      "Client Profile": 0.02,
+      "Client Profile": 0.05,
       "Awareness": 0.01,
       "Plan Discussion": 0.01,
       "Cost": 0.01,
       "Advisory Services": 0.01,
-      "Closing": 0.0
+      "Closing": 0.01
     },
     "reason": "Caller is introducing themselves and the company.",
     "evidence": [
@@ -43,7 +43,7 @@ RESULT:
     "stage": "Introduction",
     "updated_status": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -58,18 +58,18 @@ RESULT:
       "sebi_disclosure",
       "no_return_promise"
     ],
-    "next_best_question": "What is the purpose of your call?",
+    "next_best_question": "Can you explain the purpose of this call?",
     "reason": "The purpose of the call has not been stated.",
     "llm_usage": {
       "agent": "checklist_agent",
       "llm_calls": 1,
       "prompt_tokens": 429,
-      "completion_tokens": 113,
-      "total_tokens": 542
+      "completion_tokens": 117,
+      "total_tokens": 546
     },
     "final_status": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -82,11 +82,11 @@ RESULT:
     "completion_percent": 40.0
   },
   "stage_pitch": null,
-  "suggested_question": "What is the purpose of your call?",
+  "suggested_question": "Can you explain the purpose of this call?",
   "checklist_status_by_stage": {
     "Introduction": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -96,7 +96,7 @@ RESULT:
       "no_return_promise": []
     }
   },
-  "next_best_question": "What is the purpose of your call?",
+  "next_best_question": "Can you explain the purpose of this call?",
   "conversation_window": [
     {
       "speaker": "advisor",
@@ -109,8 +109,8 @@ RESULT:
 
 Current Stage: Introduction
 Stage Completed: False
-Next Question: What is the purpose of your call?
-Suggested Question: What is the purpose of your call?
+Next Question: Can you explain the purpose of this call?
+Suggested Question: Can you explain the purpose of this call?
 
 
 ======================================================================
@@ -130,7 +130,7 @@ RESULT:
       "Plan Discussion": 0.05,
       "Cost": 0.02,
       "Advisory Services": 0.01,
-      "Closing": 0.01
+      "Closing": 0.02
     },
     "reason": "Customer is providing information about their investment experience.",
     "evidence": [
@@ -176,13 +176,13 @@ RESULT:
       "existing_broker"
     ],
     "next_best_question": "Have you attended any webinars or watched videos related to investing?",
-    "reason": "To gather information on the client's awareness and education regarding investment opportunities.",
+    "reason": "To gather information on the client's awareness and education in investing.",
     "llm_usage": {
       "agent": "checklist_agent",
       "llm_calls": 1,
       "prompt_tokens": 507,
-      "completion_tokens": 136,
-      "total_tokens": 643
+      "completion_tokens": 135,
+      "total_tokens": 642
     },
     "final_status": {
       "client_experience": [
@@ -224,7 +224,7 @@ RESULT:
   "checklist_status_by_stage": {
     "Introduction": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -308,7 +308,7 @@ RESULT:
       "Advisory Services": 0.01,
       "Closing": 0.01
     },
-    "reason": "Customer is providing details about their portfolio, which aligns with the Client Profile stage.",
+    "reason": "Customer is providing details about their portfolio size.",
     "evidence": [
       "portfolio of around 2 crore rupees"
     ],
@@ -316,8 +316,8 @@ RESULT:
       "agent": "call_stage_agent",
       "llm_calls": 1,
       "prompt_tokens": 1101,
-      "completion_tokens": 136,
-      "total_tokens": 1237
+      "completion_tokens": 129,
+      "total_tokens": 1230
     },
     "previous_stage": "Client Profile",
     "stage_changed": false,
@@ -384,7 +384,7 @@ RESULT:
   "checklist_status_by_stage": {
     "Introduction": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -486,7 +486,7 @@ RESULT:
         "NIFTY ETF explained"
       ],
       "hedging": [
-        "how hedging works"
+        "Hedging explained"
       ]
     },
     "covered_items": [
@@ -511,8 +511,8 @@ RESULT:
       "agent": "checklist_agent",
       "llm_calls": 1,
       "prompt_tokens": 533,
-      "completion_tokens": 160,
-      "total_tokens": 693
+      "completion_tokens": 165,
+      "total_tokens": 698
     },
     "final_status": {
       "nifty": [],
@@ -522,7 +522,7 @@ RESULT:
       "debt": [],
       "downside_protection": [],
       "hedging": [
-        "how hedging works"
+        "Hedging explained"
       ],
       "futures": [],
       "synthetic_futures": [],
@@ -536,36 +536,30 @@ RESULT:
     "completion_percent": 17.0
   },
   "stage_pitch": {
-    "pitch": "Now, guide the conversation towards understanding the client's awareness of market dynamics. Start by explaining the concept of NIFTY and how it relates to market fluctuations. Then, introduce the idea of debt instruments and their role in providing downside protection.",
-    "objective": "Enhance client understanding of market concepts and investment strategies.",
+    "pitch": "Now, guide the conversation towards understanding the client's investment strategy. Start by explaining the concept of NIFTY and how it relates to market fluctuations. Then, introduce the idea of debt instruments and how they can provide downside protection in volatile markets.",
+    "objective": "Educate the client on NIFTY and debt instruments while discussing risk management strategies.",
     "covered_items_summary": "Client has already learned about NIFTY ETF and hedging.",
     "focus_items": [
       "nifty",
       "debt",
       "downside_protection",
-      "futures",
-      "synthetic_futures",
-      "risk_reward",
-      "market_fluctuation",
-      "interest_arbitrage",
-      "sip",
-      "swp"
+      "market_fluctuation"
     ],
-    "next_question": "What are your thoughts on using debt instruments for downside protection in your portfolio?",
-    "reason": "Stage has shifted to Awareness, focusing on educating the client about broader investment strategies.",
+    "next_question": "How do you currently manage market fluctuations in your investments, and are you familiar with using debt instruments for downside protection?",
+    "reason": "Transitioning to a deeper understanding of investment strategies and risk management.",
     "llm_usage": {
       "agent": "stage_pitch_agent",
       "llm_calls": 1,
       "prompt_tokens": 303,
-      "completion_tokens": 184,
-      "total_tokens": 487
+      "completion_tokens": 169,
+      "total_tokens": 472
     }
   },
   "suggested_question": null,
   "checklist_status_by_stage": {
     "Introduction": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -598,7 +592,7 @@ RESULT:
       "debt": [],
       "downside_protection": [],
       "hedging": [
-        "how hedging works"
+        "Hedging explained"
       ],
       "futures": [],
       "synthetic_futures": [],
@@ -640,29 +634,23 @@ Stage Completed: False
 Next Question: Can you explain what NIFTY is?
 Stage Pitch:
 {
-  "pitch": "Now, guide the conversation towards understanding the client's awareness of market dynamics. Start by explaining the concept of NIFTY and how it relates to market fluctuations. Then, introduce the idea of debt instruments and their role in providing downside protection.",
-  "objective": "Enhance client understanding of market concepts and investment strategies.",
+  "pitch": "Now, guide the conversation towards understanding the client's investment strategy. Start by explaining the concept of NIFTY and how it relates to market fluctuations. Then, introduce the idea of debt instruments and how they can provide downside protection in volatile markets.",
+  "objective": "Educate the client on NIFTY and debt instruments while discussing risk management strategies.",
   "covered_items_summary": "Client has already learned about NIFTY ETF and hedging.",
   "focus_items": [
     "nifty",
     "debt",
     "downside_protection",
-    "futures",
-    "synthetic_futures",
-    "risk_reward",
-    "market_fluctuation",
-    "interest_arbitrage",
-    "sip",
-    "swp"
+    "market_fluctuation"
   ],
-  "next_question": "What are your thoughts on using debt instruments for downside protection in your portfolio?",
-  "reason": "Stage has shifted to Awareness, focusing on educating the client about broader investment strategies.",
+  "next_question": "How do you currently manage market fluctuations in your investments, and are you familiar with using debt instruments for downside protection?",
+  "reason": "Transitioning to a deeper understanding of investment strategies and risk management.",
   "llm_usage": {
     "agent": "stage_pitch_agent",
     "llm_calls": 1,
     "prompt_tokens": 303,
-    "completion_tokens": 184,
-    "total_tokens": 487
+    "completion_tokens": 169,
+    "total_tokens": 472
   }
 }
 
@@ -725,13 +713,13 @@ RESULT:
       "tax_implication"
     ],
     "next_best_question": "Can you provide details on your advisory charges?",
-    "reason": "The transcript mentions advisory charges but does not provide any specific values.",
+    "reason": "The transcript mentions advisory charges but does not provide specific values.",
     "llm_usage": {
       "agent": "checklist_agent",
       "llm_calls": 1,
       "prompt_tokens": 477,
-      "completion_tokens": 115,
-      "total_tokens": 592
+      "completion_tokens": 114,
+      "total_tokens": 591
     },
     "final_status": {
       "annual_cost": [],
@@ -748,8 +736,8 @@ RESULT:
     "completion_percent": 0.0
   },
   "stage_pitch": {
-    "pitch": "Now, focus on discussing the costs associated with your services. Start by explaining the different types of costs involved, such as advisory charges, brokerage fees, and any one-time costs. Make sure to clarify the implications of these costs on their overall investment strategy.",
-    "objective": "Clarify the cost structure and its impact on the client's investment.",
+    "pitch": "Now, guide the client through understanding the costs associated with your services. Start by explaining the advisory charges and brokerage fees, then inquire about their expectations regarding annual costs and any one-time fees they might anticipate.",
+    "objective": "Clarify the cost structure and gather detailed information on client expectations.",
     "covered_items_summary": "Client has inquired about advisory charges and brokerage.",
     "focus_items": [
       "annual_cost",
@@ -762,21 +750,21 @@ RESULT:
       "brokerage_cost",
       "tax_implication"
     ],
-    "next_question": "Would you like to understand how our advisory charges and brokerage fees can fit into your investment plan?",
-    "reason": "Current stage focuses on understanding costs associated with investment.",
+    "next_question": "What are your expectations regarding annual costs and any one-time fees?",
+    "reason": "Stage changed from Awareness to Cost",
     "llm_usage": {
       "agent": "stage_pitch_agent",
       "llm_calls": 1,
       "prompt_tokens": 285,
-      "completion_tokens": 181,
-      "total_tokens": 466
+      "completion_tokens": 162,
+      "total_tokens": 447
     }
   },
   "suggested_question": null,
   "checklist_status_by_stage": {
     "Introduction": {
       "introduced_self": [
-        "Mahesh calling"
+        "Mahesh calling from Fin Ideas"
       ],
       "introduced_company": [
         "Fin Ideas"
@@ -809,7 +797,7 @@ RESULT:
       "debt": [],
       "downside_protection": [],
       "hedging": [
-        "how hedging works"
+        "Hedging explained"
       ],
       "futures": [],
       "synthetic_futures": [],
@@ -867,8 +855,8 @@ Stage Completed: False
 Next Question: Can you provide details on your advisory charges?
 Stage Pitch:
 {
-  "pitch": "Now, focus on discussing the costs associated with your services. Start by explaining the different types of costs involved, such as advisory charges, brokerage fees, and any one-time costs. Make sure to clarify the implications of these costs on their overall investment strategy.",
-  "objective": "Clarify the cost structure and its impact on the client's investment.",
+  "pitch": "Now, guide the client through understanding the costs associated with your services. Start by explaining the advisory charges and brokerage fees, then inquire about their expectations regarding annual costs and any one-time fees they might anticipate.",
+  "objective": "Clarify the cost structure and gather detailed information on client expectations.",
   "covered_items_summary": "Client has inquired about advisory charges and brokerage.",
   "focus_items": [
     "annual_cost",
@@ -881,14 +869,14 @@ Stage Pitch:
     "brokerage_cost",
     "tax_implication"
   ],
-  "next_question": "Would you like to understand how our advisory charges and brokerage fees can fit into your investment plan?",
-  "reason": "Current stage focuses on understanding costs associated with investment.",
+  "next_question": "What are your expectations regarding annual costs and any one-time fees?",
+  "reason": "Stage changed from Awareness to Cost",
   "llm_usage": {
     "agent": "stage_pitch_agent",
     "llm_calls": 1,
     "prompt_tokens": 285,
-    "completion_tokens": 181,
-    "total_tokens": 466
+    "completion_tokens": 162,
+    "total_tokens": 447
   }
 }
 

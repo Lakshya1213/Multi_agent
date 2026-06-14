@@ -1,0 +1,75 @@
+================================================================================
+TURN: 1
+Speaker: advisor
+Route: stage_node
+Text: Good afternoon, this is Mahesh calling from Fin Ideas. I wanted to speak with Joicy, sir.
+Previous Stage: None
+Active Stage: Introduction
+RAG Answer: None
+Stage Pitch: None
+Next Question: Can you explain the purpose of this call?
+Suggested Question: Can you explain the purpose of this call?
+Stage Completed: False
+Checklist: {'stage': 'Introduction', 'updated_status': {'introduced_self': ['Mahesh calling'], 'introduced_company': ['Fin Ideas']}, 'covered_items': ['introduced_self', 'introduced_company'], 'missing_items': ['stated_purpose', 'sebi_disclosure', 'no_return_promise'], 'next_best_question': 'Can you explain the purpose of this call?', 'reason': 'The purpose of the call has not been stated.', 'llm_usage': {'agent': 'checklist_agent', 'llm_calls': 1, 'prompt_tokens': 429, 'completion_tokens': 114, 'total_tokens': 543}, 'final_status': {'introduced_self': ['Mahesh calling'], 'introduced_company': ['Fin Ideas'], 'stated_purpose': [], 'sebi_disclosure': [], 'no_return_promise': []}, 'completion_score': 0.4, 'completion_percent': 40.0}
+LLM Usage: None
+
+================================================================================
+TURN: 2
+Speaker: customer
+Route: rag_node
+Text: I have been investing in stocks for the last 8 years.
+Previous Stage: Introduction
+Active Stage: Client Profile
+RAG Answer: 
+Stage Pitch: {'pitch': 'Now shift the conversation to client profiling. First acknowledge the client, then ask about their existing portfolio and how much they are planning to invest.', 'objective': 'Collect important client profile details', 'covered_items_summary': 'Client has already shared stock market experience.', 'focus_items': ['existing_portfolio', 'investment_amount', 'investment_horizon'], 'next_question': 'Can you tell me about your current portfolio size and how much you are planning to invest?', 'reason': 'Stage changed from Introduction to Client Profile', 'llm_usage': {'agent': 'stage_pitch_agent', 'llm_calls': 1, 'prompt_tokens': 295, 'completion_tokens': 117, 'total_tokens': 412}}
+Next Question: Have you attended any webinars or watched videos related to investing?
+Suggested Question: None
+Stage Completed: False
+Checklist: {'stage': 'Client Profile', 'updated_status': {'client_experience': ['8 years']}, 'covered_items': ['client_experience'], 'missing_items': ['webinar_awareness', 'existing_portfolio', 'preferred_plan', 'investment_amount', 'investment_type', 'swp_requirement', 'investment_horizon', 'debt_preference', 'existing_broker'], 'next_best_question': 'Have you attended any webinars or watched videos related to investing?', 'reason': "To gather information on the client's awareness and education in investing.", 'llm_usage': {'agent': 'checklist_agent', 'llm_calls': 1, 'prompt_tokens': 507, 'completion_tokens': 135, 'total_tokens': 642}, 'final_status': {'client_experience': ['8 years'], 'webinar_awareness': [], 'existing_portfolio': ['around 2 crore rupees'], 'preferred_plan': [], 'investment_amount': [], 'investment_type': [], 'swp_requirement': [], 'investment_horizon': [], 'debt_preference': [], 'existing_broker': []}, 'completion_score': 0.1, 'completion_percent': 10.0}
+LLM Usage: None
+
+================================================================================
+TURN: 3
+Speaker: customer
+Route: rag_node
+Text: I currently have a portfolio of around 2 crore rupees.
+Previous Stage: Client Profile
+Active Stage: Client Profile
+RAG Answer: 
+Stage Pitch: None
+Next Question: What is your preferred investment amount?
+Suggested Question: What is your preferred investment amount?
+Stage Completed: False
+Checklist: {'stage': 'Client Profile', 'updated_status': {'existing_portfolio': ['around 2 crore rupees']}, 'covered_items': ['client_experience', 'existing_portfolio'], 'missing_items': ['webinar_awareness', 'preferred_plan', 'investment_amount', 'investment_type', 'swp_requirement', 'investment_horizon', 'debt_preference', 'existing_broker'], 'next_best_question': 'What is your preferred investment amount?', 'reason': "Investment amount is crucial for understanding the client's financial capacity.", 'llm_usage': {'agent': 'checklist_agent', 'llm_calls': 1, 'prompt_tokens': 514, 'completion_tokens': 131, 'total_tokens': 645}, 'final_status': {'client_experience': ['8 years'], 'webinar_awareness': [], 'existing_portfolio': ['around 2 crore rupees'], 'preferred_plan': [], 'investment_amount': [], 'investment_type': [], 'swp_requirement': [], 'investment_horizon': [], 'debt_preference': [], 'existing_broker': []}, 'completion_score': 0.2, 'completion_percent': 20.0}
+LLM Usage: None
+
+================================================================================
+TURN: 4
+Speaker: customer
+Route: rag_node
+Text: What is NIFTY ETF and how hedging works?
+Previous Stage: Client Profile
+Active Stage: Awareness
+RAG Answer: 
+Stage Pitch: {'pitch': "Now, guide the conversation towards understanding the client's investment strategy. Start by discussing the concept of NIFTY and how it relates to their investment goals. Then, introduce the idea of debt instruments and how they can provide downside protection in volatile markets.", 'objective': 'Educate the client on NIFTY and debt instruments while assessing their risk tolerance.', 'covered_items_summary': 'Client has already learned about NIFTY ETF and hedging.', 'focus_items': ['nifty', 'debt', 'downside_protection', 'risk_reward', 'market_fluctuation'], 'next_question': 'What are your thoughts on using NIFTY as part of your investment strategy, and how do you feel about incorporating debt for downside protection?', 'reason': 'Current stage is Awareness, focusing on educating the client about investment options.', 'llm_usage': {'agent': 'stage_pitch_agent', 'llm_calls': 1, 'prompt_tokens': 303, 'completion_tokens': 180, 'total_tokens': 483}}
+Next Question: Can you explain what NIFTY is?
+Suggested Question: None
+Stage Completed: False
+Checklist: {'stage': 'Awareness', 'updated_status': {'nifty_etf': ['NIFTY ETF explained'], 'hedging': ['Hedging explained']}, 'covered_items': ['nifty_etf', 'hedging'], 'missing_items': ['nifty', 'debt', 'downside_protection', 'futures', 'synthetic_futures', 'risk_reward', 'market_fluctuation', 'interest_arbitrage', 'sip', 'swp'], 'next_best_question': 'Can you explain what NIFTY is?', 'reason': 'NIFTY is a fundamental concept that is missing from the current checklist status.', 'llm_usage': {'agent': 'checklist_agent', 'llm_calls': 1, 'prompt_tokens': 533, 'completion_tokens': 165, 'total_tokens': 698}, 'final_status': {'nifty': [], 'nifty_etf': ['NIFTY ETF explained'], 'debt': [], 'downside_protection': [], 'hedging': ['Hedging explained'], 'futures': [], 'synthetic_futures': [], 'risk_reward': [], 'market_fluctuation': [], 'interest_arbitrage': [], 'sip': [], 'swp': []}, 'completion_score': 0.17, 'completion_percent': 17.0}
+LLM Usage: None
+
+================================================================================
+TURN: 5
+Speaker: customer
+Route: rag_node
+Text: What are your advisory charges and brokerage?
+Previous Stage: Awareness
+Active Stage: Cost
+RAG Answer: 
+Stage Pitch: {'pitch': "Now, let's discuss the costs associated with your investments. Start by explaining the different types of costs involved, such as advisory charges, brokerage fees, and any potential tax implications. This will help the client understand the overall financial commitment.", 'objective': 'Clarify the cost structure for the client', 'covered_items_summary': 'Client has inquired about advisory charges and brokerage.', 'focus_items': ['annual_cost', 'advisory_cost', 'one_time_cost', 'sip_cost', 'net_cost', 'hedging_cost', 'forwarding_cost', 'brokerage_cost', 'tax_implication'], 'next_question': 'Could you share your expectations regarding advisory costs and any specific concerns you have about brokerage fees?', 'reason': 'Stage changed from Awareness to Cost', 'llm_usage': {'agent': 'stage_pitch_agent', 'llm_calls': 1, 'prompt_tokens': 285, 'completion_tokens': 168, 'total_tokens': 453}}
+Next Question: Can you provide details on your advisory charges?
+Suggested Question: None
+Stage Completed: False
+Checklist: {'stage': 'Cost', 'updated_status': {}, 'covered_items': [], 'missing_items': ['annual_cost', 'advisory_cost', 'one_time_cost', 'sip_cost', 'net_cost', 'hedging_cost', 'forwarding_cost', 'brokerage_cost', 'tax_implication'], 'next_best_question': 'Can you provide details on your advisory charges?', 'reason': 'The transcript mentions advisory charges but does not provide specific values.', 'llm_usage': {'agent': 'checklist_agent', 'llm_calls': 1, 'prompt_tokens': 477, 'completion_tokens': 114, 'total_tokens': 591}, 'final_status': {'annual_cost': [], 'advisory_cost': [], 'one_time_cost': [], 'sip_cost': [], 'net_cost': [], 'hedging_cost': [], 'forwarding_cost': [], 'brokerage_cost': [], 'tax_implication': []}, 'completion_score': 0.0, 'completion_percent': 0.0}
+LLM Usage: None
+

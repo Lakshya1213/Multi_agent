@@ -8,6 +8,7 @@ class LiveAssistState(TypedDict):
 
     speaker: str
     transcript: str
+    speaker_route: Optional[str]
 
     # ----------------------
     # Memory
@@ -20,6 +21,7 @@ class LiveAssistState(TypedDict):
 
     checklist_status_by_stage: Dict[str, Any]
     conversation_window: List[Dict[str, Any]]
+    session_id: Optional[str]
 
     # ----------------------
     # Stage Node Output
@@ -35,6 +37,16 @@ class LiveAssistState(TypedDict):
     checklist: Optional[Dict[str, Any]]
     stage_completed: bool
     next_best_question: Optional[str]
+
+    # ----------------------
+    # RAG Node Output
+    # ----------------------
+
+    rag: Optional[Dict[str, Any]]
+    rag_answer: Optional[str]
+    rag_context: Optional[str]
+    rag_top_chunks: List[str]
+    rag_metadata: Optional[Dict[str, Any]]
 
     # ----------------------
     # Stage Pitch Node Output
